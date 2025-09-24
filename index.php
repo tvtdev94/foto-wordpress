@@ -241,8 +241,14 @@
         ?>
 
         <div class="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <?php foreach ($services_gallery as $index => $service) : ?>
-                <div class="relative group cursor-pointer service-gallery-item" data-service="<?php echo $index; ?>">
+            <?php
+            $visible_index = 0;
+            foreach ($services_gallery as $index => $service) :
+                // Check if this service should be visible
+                $is_visible = get_theme_mod("service_gallery_visible_" . ($index + 1), true);
+                if (!$is_visible) continue;
+            ?>
+                <div class="relative group cursor-pointer service-gallery-item" data-service="<?php echo $visible_index; ?>">
                     <img src="<?php echo esc_url($service['image']); ?>"
                          alt="<?php echo esc_attr($service['title']); ?>"
                          class="w-full h-48 object-cover rounded-xl shadow-smooth transition-all duration-300 group-hover:scale-105">
@@ -261,7 +267,9 @@
                         </svg>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            <?php
+                $visible_index++;
+            endforeach; ?>
         </div>
     </div>
 </section>

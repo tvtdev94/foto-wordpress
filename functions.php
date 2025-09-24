@@ -1081,6 +1081,17 @@ function foto_services_customize_register($wp_customize) {
     for ($i = 1; $i <= 11; $i++) {
         $service_name = $service_names[$i-1];
 
+        // Visible checkbox for each service
+        $wp_customize->add_setting("service_gallery_visible_{$i}", array(
+            'default' => true,
+            'sanitize_callback' => 'wp_validate_boolean',
+        ));
+        $wp_customize->add_control("service_gallery_visible_{$i}", array(
+            'label' => "Show {$service_name}",
+            'section' => 'services_gallery_images',
+            'type' => 'checkbox',
+        ));
+
         $wp_customize->add_setting("service_gallery_image_{$i}", array(
             'default' => '',
             'sanitize_callback' => 'esc_url_raw',
@@ -1311,6 +1322,45 @@ function foto_services_customize_register($wp_customize) {
         'section' => 'pricing_bottom',
         'type' => 'url',
         'description' => 'Leave as #contact to scroll to contact form, or enter full URL',
+    ));
+
+    // Gallery Section
+    $wp_customize->add_section('gallery_section', array(
+        'title' => 'Gallery Section',
+        'priority' => 39,
+    ));
+
+    // Show/Hide Gallery Section
+    $wp_customize->add_setting('show_gallery_section', array(
+        'default' => true,
+        'sanitize_callback' => 'wp_validate_boolean',
+    ));
+    $wp_customize->add_control('show_gallery_section', array(
+        'label' => 'Show Gallery Section',
+        'section' => 'gallery_section',
+        'type' => 'checkbox',
+    ));
+
+    // Gallery Title
+    $wp_customize->add_setting('gallery_title', array(
+        'default' => 'Services Gallery',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('gallery_title', array(
+        'label' => 'Gallery Title',
+        'section' => 'gallery_section',
+        'type' => 'text',
+    ));
+
+    // Gallery Subtitle
+    $wp_customize->add_setting('gallery_subtitle', array(
+        'default' => 'Click on each service to view detailed sample images.',
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ));
+    $wp_customize->add_control('gallery_subtitle', array(
+        'label' => 'Gallery Subtitle',
+        'section' => 'gallery_section',
+        'type' => 'textarea',
     ));
 
     // Gallery Images Section
