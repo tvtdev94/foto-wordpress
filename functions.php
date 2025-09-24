@@ -1239,6 +1239,46 @@ function foto_services_customize_register($wp_customize) {
         'type' => 'text',
     ));
 
+    // Services Gallery Images Section
+    $wp_customize->add_section('services_gallery_images', array(
+        'title' => 'Services Gallery Images',
+        'priority' => 39,
+    ));
+
+    // Services Gallery Images
+    $service_names = array(
+        'Single', 'HDR', 'Ambient Flash', '2D Floor Plan', '3D Floor Plan',
+        'Virtual Staging', 'Clear the Room', 'Clear the Room + VS',
+        'Item Removal', 'Natural Twilight', 'Virtual Twilight'
+    );
+
+    for ($i = 1; $i <= 11; $i++) {
+        $service_name = $service_names[$i-1];
+
+        $wp_customize->add_setting("service_gallery_image_{$i}", array(
+            'default' => '',
+            'sanitize_callback' => 'esc_url_raw',
+        ));
+        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "service_gallery_image_{$i}", array(
+            'label' => "{$service_name} - Main Image",
+            'section' => 'services_gallery_images',
+            'settings' => "service_gallery_image_{$i}",
+        )));
+
+        // Add 6 thumbnail images for each service
+        for ($j = 1; $j <= 6; $j++) {
+            $wp_customize->add_setting("service_gallery_thumb_{$i}_{$j}", array(
+                'default' => '',
+                'sanitize_callback' => 'esc_url_raw',
+            ));
+            $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "service_gallery_thumb_{$i}_{$j}", array(
+                'label' => "{$service_name} - Thumbnail {$j}",
+                'section' => 'services_gallery_images',
+                'settings' => "service_gallery_thumb_{$i}_{$j}",
+            )));
+        }
+    }
+
     // Gallery Images Section
     $wp_customize->add_section('gallery_images', array(
         'title' => 'Gallery Images',
