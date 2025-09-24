@@ -337,58 +337,13 @@ window.servicesThumbnails = {
 <section id="pricing" class="py-20 bg-white">
     <div class="container mx-auto px-4">
         <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-extrabold"><?php echo esc_html(get_theme_mod('pricing_title', 'Bảng giá minh họa')); ?></h2>
-            <p class="mt-3 text-slate-600"><?php echo esc_html(get_theme_mod('pricing_subtitle', 'Giá demo để tham khảo. Có thể tùy chỉnh theo khối lượng và yêu cầu.')); ?></p>
+            <h2 class="text-3xl md:text-4xl font-extrabold"><?php echo esc_html(get_theme_mod('pricing_title', 'Pricing')); ?></h2>
+            <p class="mt-3 text-slate-600"><?php echo esc_html(get_theme_mod('pricing_subtitle', 'Reference pricing — final rates depend on project volume and requirements.')); ?></p>
         </div>
-        <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="mt-10">
             <?php
-            // Check if any pricing plans are configured
-            $has_pricing = false;
-            for ($i = 1; $i <= 3; $i++) {
-                if (get_theme_mod("price{$i}_label", '')) {
-                    $has_pricing = true;
-                    break;
-                }
-            }
-
-            if ($has_pricing) :
-                // Show configured pricing
-                for ($i = 1; $i <= 3; $i++) :
-                    $label = get_theme_mod("price{$i}_label", '');
-                    if ($label) :
-                        $borderClass = ($i == 2) ? 'border-2 border-indigo-600 bg-white' : 'border border-slate-200 bg-slate-50';
-            ?>
-                <div class="rounded-2xl p-6 shadow-smooth <?php echo $borderClass; ?>">
-                    <div class="text-sm font-semibold text-indigo-600"><?php echo esc_html($label); ?></div>
-                    <div class="mt-2 text-4xl font-extrabold">
-                        <?php echo esc_html(get_theme_mod("price{$i}_price", '')); ?>
-                        <span class="text-base text-slate-500"><?php echo esc_html(get_theme_mod("price{$i}_unit", '')); ?></span>
-                    </div>
-                    <ul class="mt-4 text-sm text-slate-600 space-y-2">
-                        <?php
-                        $feature1 = get_theme_mod("price{$i}_feature1", '');
-                        $feature2 = get_theme_mod("price{$i}_feature2", '');
-                        $feature3 = get_theme_mod("price{$i}_feature3", '');
-
-                        if ($feature1) : ?>
-                            <li class="service-feature"><?php echo esc_html($feature1); ?></li>
-                        <?php endif; ?>
-                        <?php if ($feature2) : ?>
-                            <li class="service-feature"><?php echo esc_html($feature2); ?></li>
-                        <?php endif; ?>
-                        <?php if ($feature3) : ?>
-                            <li class="service-feature"><?php echo esc_html($feature3); ?></li>
-                        <?php endif; ?>
-                    </ul>
-                    <a href="#contact" class="mt-6 inline-block w-full text-center rounded-xl bg-indigo-600 text-white py-2.5 font-semibold hover:bg-indigo-700"><?php echo esc_html(get_theme_mod('pricing_button_text', 'Chọn gói')); ?></a>
-                </div>
-            <?php
-                    endif;
-                endfor;
-            else :
-                // Show default pricing
-                include 'template-parts/default-pricing.php';
-            endif;
+            // Always show the new detailed pricing template
+            include 'template-parts/default-pricing.php';
             ?>
         </div>
     </div>

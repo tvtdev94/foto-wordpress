@@ -759,180 +759,6 @@ function foto_services_customize_register($wp_customize) {
         'type' => 'text',
     ));
 
-    // Pricing Section
-    $wp_customize->add_section('pricing_content', array(
-        'title' => 'Pricing Content',
-        'priority' => 35,
-    ));
-
-    // Price 1 - Basic
-    $wp_customize->add_setting('price1_label', array(
-        'default' => 'Basic',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('price1_label', array(
-        'label' => 'Price 1 Label',
-        'section' => 'pricing_content',
-        'type' => 'text',
-    ));
-    $wp_customize->add_setting('price1_price', array(
-        'default' => '$1.2',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('price1_price', array(
-        'label' => 'Price 1 Price',
-        'section' => 'pricing_content',
-        'type' => 'text',
-    ));
-    $wp_customize->add_setting('price1_unit', array(
-        'default' => '/ảnh',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('price1_unit', array(
-        'label' => 'Price 1 Unit',
-        'section' => 'pricing_content',
-        'type' => 'text',
-    ));
-    $wp_customize->add_setting('price1_feature1', array(
-        'default' => 'HDR blend 3 tấm',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('price1_feature1', array(
-        'label' => 'Price 1 Feature 1',
-        'section' => 'pricing_content',
-        'type' => 'text',
-    ));
-    $wp_customize->add_setting('price1_feature2', array(
-        'default' => 'WB & Straighten',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('price1_feature2', array(
-        'label' => 'Price 1 Feature 2',
-        'section' => 'pricing_content',
-        'type' => 'text',
-    ));
-    $wp_customize->add_setting('price1_feature3', array(
-        'default' => 'Window pull nhẹ',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('price1_feature3', array(
-        'label' => 'Price 1 Feature 3',
-        'section' => 'pricing_content',
-        'type' => 'text',
-    ));
-
-    // Price 2 - Pro
-    $wp_customize->add_setting('price2_label', array(
-        'default' => 'Pro • Phổ biến',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('price2_label', array(
-        'label' => 'Price 2 Label',
-        'section' => 'pricing_content',
-        'type' => 'text',
-    ));
-    $wp_customize->add_setting('price2_price', array(
-        'default' => '$1.8',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('price2_price', array(
-        'label' => 'Price 2 Price',
-        'section' => 'pricing_content',
-        'type' => 'text',
-    ));
-    $wp_customize->add_setting('price2_unit', array(
-        'default' => '/ảnh',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('price2_unit', array(
-        'label' => 'Price 2 Unit',
-        'section' => 'pricing_content',
-        'type' => 'text',
-    ));
-    $wp_customize->add_setting('price2_feature1', array(
-        'default' => 'Flambient 3+1',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('price2_feature1', array(
-        'label' => 'Price 2 Feature 1',
-        'section' => 'pricing_content',
-        'type' => 'text',
-    ));
-    $wp_customize->add_setting('price2_feature2', array(
-        'default' => 'Window pull rõ',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('price2_feature2', array(
-        'label' => 'Price 2 Feature 2',
-        'section' => 'pricing_content',
-        'type' => 'text',
-    ));
-    $wp_customize->add_setting('price2_feature3', array(
-        'default' => 'Xóa vật nhỏ',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('price2_feature3', array(
-        'label' => 'Price 2 Feature 3',
-        'section' => 'pricing_content',
-        'type' => 'text',
-    ));
-
-    // Price 3 - Staging/Extra
-    $wp_customize->add_setting('price3_label', array(
-        'default' => 'Staging/Extra',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('price3_label', array(
-        'label' => 'Price 3 Label',
-        'section' => 'pricing_content',
-        'type' => 'text',
-    ));
-    $wp_customize->add_setting('price3_price', array(
-        'default' => '$8+',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('price3_price', array(
-        'label' => 'Price 3 Price',
-        'section' => 'pricing_content',
-        'type' => 'text',
-    ));
-    $wp_customize->add_setting('price3_unit', array(
-        'default' => '/ảnh',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('price3_unit', array(
-        'label' => 'Price 3 Unit',
-        'section' => 'pricing_content',
-        'type' => 'text',
-    ));
-    $wp_customize->add_setting('price3_feature1', array(
-        'default' => 'Virtual staging',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('price3_feature1', array(
-        'label' => 'Price 3 Feature 1',
-        'section' => 'pricing_content',
-        'type' => 'text',
-    ));
-    $wp_customize->add_setting('price3_feature2', array(
-        'default' => 'Twilight replace',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('price3_feature2', array(
-        'label' => 'Price 3 Feature 2',
-        'section' => 'pricing_content',
-        'type' => 'text',
-    ));
-    $wp_customize->add_setting('price3_feature3', array(
-        'default' => 'Remove 1–10 items',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('price3_feature3', array(
-        'label' => 'Price 3 Feature 3',
-        'section' => 'pricing_content',
-        'type' => 'text',
-    ));
-
     // Testimonials Section
     $wp_customize->add_section('testimonials_content', array(
         'title' => 'Testimonials Content',
@@ -1278,6 +1104,214 @@ function foto_services_customize_register($wp_customize) {
             )));
         }
     }
+
+    // Pricing Section
+    $wp_customize->add_section('pricing_services', array(
+        'title' => 'Pricing Services',
+        'priority' => 35,
+    ));
+
+    // Define all pricing services
+    $pricing_services = array(
+        array('id' => 'single', 'name' => 'Single', 'default_price' => '$0.5', 'default_unit' => '/photo'),
+        array('id' => 'hdr', 'name' => 'HDR', 'default_price' => '$0.75', 'default_unit' => '/photo'),
+        array('id' => 'hdr_flash', 'name' => 'HDR + Flash Composite', 'default_price' => '$0.85', 'default_unit' => '/photo'),
+        array('id' => 'multi_flash', 'name' => 'Multi Flash', 'default_price' => '$1.25', 'default_unit' => '/photo'),
+        array('id' => 'virtual_staging', 'name' => 'Virtual Staging', 'default_price' => '$12', 'default_unit' => '/photo'),
+        array('id' => 'virtual_twilight', 'name' => 'Virtual Twilight', 'default_price' => '$5', 'default_unit' => '/photo'),
+        array('id' => 'object_removal', 'name' => 'Object Removal', 'default_price' => '$2–5', 'default_unit' => '/photo'),
+        array('id' => 'clear_room', 'name' => 'Clear the Room', 'default_price' => '$12', 'default_unit' => '/photo'),
+        array('id' => 'grass_replacement', 'name' => 'Grass Replacement', 'default_price' => '$2', 'default_unit' => '/photo'),
+        array('id' => 'water_pool', 'name' => 'Water in Pool', 'default_price' => '$2', 'default_unit' => '/photo'),
+        array('id' => 'floor_2d', 'name' => 'Custom 2D Floor Plan', 'default_price' => 'From $10', 'default_unit' => '/floor'),
+        array('id' => 'floor_3d', 'name' => 'Custom 3D Floor Plan', 'default_price' => 'From $25', 'default_unit' => '/floor'),
+        array('id' => 'video_editing', 'name' => 'Video Editing', 'default_price' => 'From $15', 'default_unit' => '/video')
+    );
+
+    foreach ($pricing_services as $service) {
+        // Visible checkbox
+        $wp_customize->add_setting("pricing_{$service['id']}_visible", array(
+            'default' => true,
+            'sanitize_callback' => 'wp_validate_boolean',
+        ));
+        $wp_customize->add_control("pricing_{$service['id']}_visible", array(
+            'label' => "Show {$service['name']}",
+            'section' => 'pricing_services',
+            'type' => 'checkbox',
+        ));
+
+        // Service name
+        $wp_customize->add_setting("pricing_{$service['id']}_name", array(
+            'default' => $service['name'],
+            'sanitize_callback' => 'sanitize_text_field',
+        ));
+        $wp_customize->add_control("pricing_{$service['id']}_name", array(
+            'label' => "{$service['name']} - Service Name",
+            'section' => 'pricing_services',
+            'type' => 'text',
+        ));
+
+        // Price
+        $wp_customize->add_setting("pricing_{$service['id']}_price", array(
+            'default' => $service['default_price'],
+            'sanitize_callback' => 'sanitize_text_field',
+        ));
+        $wp_customize->add_control("pricing_{$service['id']}_price", array(
+            'label' => "{$service['name']} - Price",
+            'section' => 'pricing_services',
+            'type' => 'text',
+        ));
+
+        // Unit
+        $wp_customize->add_setting("pricing_{$service['id']}_unit", array(
+            'default' => $service['default_unit'],
+            'sanitize_callback' => 'sanitize_text_field',
+        ));
+        $wp_customize->add_control("pricing_{$service['id']}_unit", array(
+            'label' => "{$service['name']} - Unit",
+            'section' => 'pricing_services',
+            'type' => 'text',
+        ));
+
+        // Features (3 features per service) with defaults
+        $default_features = array();
+        switch($service['id']) {
+            case 'single':
+                $default_features = ['1 exposure', 'No window blending', 'Natural light & basic edit'];
+                break;
+            case 'hdr':
+                $default_features = ['3–5 exposures', 'HDR editing', 'Balanced tones & window pulls'];
+                break;
+            case 'hdr_flash':
+                $default_features = ['3–5 exposures + 1 flash', 'Standard HDR & flash edit', 'Natural shadows & details'];
+                break;
+            case 'multi_flash':
+                $default_features = ['Multiple flash frames', 'Clean composite edit', 'Consistent color & light'];
+                break;
+            case 'virtual_staging':
+                $default_features = ['Realistic furniture placement', 'Multiple style options', 'Natural shadows & reflections'];
+                break;
+            case 'virtual_twilight':
+                $default_features = ['Sunset/twilight sky replacement', 'Balanced warm tones', 'Natural building highlights'];
+                break;
+            case 'object_removal':
+                $default_features = ['Remove 1–10 items', 'Seamless retouch', 'Preserve original details'];
+                break;
+            case 'clear_room':
+                $default_features = ['Remove all furniture/objects', 'Clean background restoration', 'Ready for virtual staging'];
+                break;
+            case 'grass_replacement':
+                $default_features = ['Replace patchy or dead grass', 'Natural green tones', 'Blends with surroundings'];
+                break;
+            case 'water_pool':
+                $default_features = ['Add clear blue water', 'Natural reflections', 'Realistic depth look'];
+                break;
+            case 'floor_2d':
+                $default_features = ['Accurate dimensions', 'Branded styling', 'Editable source file'];
+                break;
+            case 'floor_3d':
+                $default_features = ['Realistic 3D modeling', 'Branded styling', 'High-res export'];
+                break;
+            case 'video_editing':
+                $default_features = ['15–60s clips', 'Music & subtitles', 'Multi-platform formats'];
+                break;
+        }
+
+        for ($i = 1; $i <= 3; $i++) {
+            $default_feature = isset($default_features[$i-1]) ? $default_features[$i-1] : '';
+            $wp_customize->add_setting("pricing_{$service['id']}_feature{$i}", array(
+                'default' => $default_feature,
+                'sanitize_callback' => 'sanitize_text_field',
+            ));
+            $wp_customize->add_control("pricing_{$service['id']}_feature{$i}", array(
+                'label' => "{$service['name']} - Feature {$i}",
+                'section' => 'pricing_services',
+                'type' => 'text',
+            ));
+        }
+    }
+
+    // Pricing Bottom Section
+    $wp_customize->add_section('pricing_bottom', array(
+        'title' => 'Pricing Bottom Section',
+        'priority' => 36,
+    ));
+
+    // Title
+    $wp_customize->add_setting('pricing_bottom_title', array(
+        'default' => 'Flexible pricing for every studio',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('pricing_bottom_title', array(
+        'label' => 'Bottom Title',
+        'section' => 'pricing_bottom',
+        'type' => 'text',
+    ));
+
+    // Subtitle
+    $wp_customize->add_setting('pricing_bottom_subtitle', array(
+        'default' => 'Volume-friendly quotes, transparent add-ons, and consistent turnaround. Ask for our rate card.',
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ));
+    $wp_customize->add_control('pricing_bottom_subtitle', array(
+        'label' => 'Bottom Subtitle',
+        'section' => 'pricing_bottom',
+        'type' => 'textarea',
+    ));
+
+    // Features
+    $wp_customize->add_setting('pricing_bottom_feature1', array(
+        'default' => 'No hidden fees',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('pricing_bottom_feature1', array(
+        'label' => 'Feature 1',
+        'section' => 'pricing_bottom',
+        'type' => 'text',
+    ));
+
+    $wp_customize->add_setting('pricing_bottom_feature2', array(
+        'default' => 'Next-morning delivery on most orders',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('pricing_bottom_feature2', array(
+        'label' => 'Feature 2',
+        'section' => 'pricing_bottom',
+        'type' => 'text',
+    ));
+
+    $wp_customize->add_setting('pricing_bottom_feature3', array(
+        'default' => 'Dedicated QC for key accounts',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('pricing_bottom_feature3', array(
+        'label' => 'Feature 3',
+        'section' => 'pricing_bottom',
+        'type' => 'text',
+    ));
+
+    // Button Text
+    $wp_customize->add_setting('pricing_bottom_button_text', array(
+        'default' => 'Request Pricing',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('pricing_bottom_button_text', array(
+        'label' => 'Button Text',
+        'section' => 'pricing_bottom',
+        'type' => 'text',
+    ));
+
+    // Button URL
+    $wp_customize->add_setting('pricing_bottom_button_url', array(
+        'default' => '#contact',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+    $wp_customize->add_control('pricing_bottom_button_url', array(
+        'label' => 'Button URL',
+        'section' => 'pricing_bottom',
+        'type' => 'url',
+        'description' => 'Leave as #contact to scroll to contact form, or enter full URL',
+    ));
 
     // Gallery Images Section
     $wp_customize->add_section('gallery_images', array(
