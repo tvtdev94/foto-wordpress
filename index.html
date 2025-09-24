@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foto Services — Demo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--brand:#0f172a}
+    html,body{font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"}
+    /* Before/After slider */
+    .ba-wrap{position:relative;overflow:hidden;border-radius:1rem}
+    .ba-wrap img{display:block;width:100%;height:100%;object-fit:cover}
+    .ba-after{position:absolute;inset:0;overflow:hidden}
+    .ba-handle{position:absolute;top:50%;transform:translate(-50%, -50%);width:3px;height:100%;background:white;box-shadow:0 0 0 2px rgba(15,23,42,.2)}
+    .ba-dot{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:9999px;background:white;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 25px rgba(0,0,0,.15)}
+    .container{max-width:1200px}
+    .shadow-smooth{box-shadow:0 10px 30px rgba(2,6,23,.08)}
+    .badge{border:1px solid rgba(15,23,42,.1);background:rgba(255,255,255,.7);backdrop-filter:blur(6px)}
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <!-- Top Bar -->
+  <div class="bg-slate-900 text-white text-sm">
+    <div class="container mx-auto px-4 py-2 flex items-center justify-between">
+      <span>📸 Foto Services — Real Estate Photo Editing</span>
+      <div class="flex items-center gap-4 opacity-90">
+        <a href="#contact" class="hover:underline">✉️ hello@fotoservices.com</a>
+        <a href="#contact" class="hover:underline">📞 +84 90 000 0000</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#hero" class="font-extrabold text-xl tracking-tight"><span class="text-slate-900">Foto</span><span class="text-indigo-600">Services</span></a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#services" class="hover:text-indigo-600">Dịch vụ</a>
+        <a href="#beforeafter" class="hover:text-indigo-600">Before/After</a>
+        <a href="#gallery" class="hover:text-indigo-600">Gallery</a>
+        <a href="#pricing" class="hover:text-indigo-600">Bảng giá</a>
+        <a href="#faq" class="hover:text-indigo-600">FAQ</a>
+      </nav>
+      <a href="#contact" class="inline-flex items-center gap-2 rounded-2xl bg-indigo-600 text-white px-5 py-2.5 text-sm font-semibold hover:bg-indigo-700 shadow-smooth">Nhận báo giá</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" class="relative">
+    <div class="absolute inset-0 -z-10">
+      <img src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2a69?q=80&w=1600&auto=format&fit=crop" alt="Luxury interior" class="w-full h-full object-cover"/>
+      <div class="absolute inset-0 bg-slate-900/50"></div>
+    </div>
+    <div class="container mx-auto px-4 py-20 md:py-28 text-white">
+      <div class="max-w-2xl">
+        <span class="badge inline-block px-3 py-1 rounded-full text-xs text-white/90 bg-white/10 border border-white/20">Ảnh BĐS • Virtual Staging • Floor Plan</span>
+        <h1 class="mt-4 text-4xl md:text-6xl font-extrabold leading-tight">Biến ảnh thô thành <span class="text-indigo-300">tác phẩm bán hàng</span></h1>
+        <p class="mt-4 text-white/90 text-lg">Đối tác hậu kỳ đáng tin cậy cho nhiếp ảnh BĐS: HDR/Flambient, xóa vật thể, sky replacement, twilight, virtual staging, video ngắn & sơ đồ mặt bằng.</p>
+        <div class="mt-8 flex items-center gap-3">
+          <a href="#contact" class="rounded-2xl bg-indigo-600 px-6 py-3 font-semibold hover:bg-indigo-700 shadow-smooth">Bắt đầu ngay</a>
+          <a href="#services" class="rounded-2xl bg-white/80 text-slate-900 px-6 py-3 font-semibold hover:bg-white shadow-smooth">Xem dịch vụ</a>
+        </div>
+        <div class="mt-8 flex items-center gap-6 text-white/80 text-sm">
+          <div>⚡ Turnaround 12–24h</div>
+          <div>🛡️ QC 2 lớp</div>
+          <div>🌍 Khách hàng AU/US</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST / STATS -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div class="p-6 rounded-2xl bg-slate-50 shadow-smooth">
+        <div class="text-3xl font-extrabold">1.2M+</div>
+        <div class="text-slate-500 text-sm">Ảnh đã xử lý</div>
+      </div>
+      <div class="p-6 rounded-2xl bg-slate-50 shadow-smooth">
+        <div class="text-3xl font-extrabold">12–24h</div>
+        <div class="text-slate-500 text-sm">Tốc độ giao</div>
+      </div>
+      <div class="p-6 rounded-2xl bg-slate-50 shadow-smooth">
+        <div class="text-3xl font-extrabold">99.5%</div>
+        <div class="text-slate-500 text-sm">Đúng hạn</div>
+      </div>
+      <div class="p-6 rounded-2xl bg-slate-50 shadow-smooth">
+        <div class="text-3xl font-extrabold">4.9/5</div>
+        <div class="text-slate-500 text-sm">Đánh giá TB</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-20 bg-slate-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-extrabold">Dịch vụ của chúng tôi</h2>
+        <p class="mt-3 text-slate-600">Tối ưu cho nhiếp ảnh BĐS: chất lượng nhất quán, quy trình rõ ràng, chi phí hợp lý.</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <!-- Card -->
+        <div class="p-6 bg-white rounded-2xl shadow-smooth">
+          <div class="text-2xl">🖼️ HDR/Flambient</div>
+          <p class="mt-2 text-slate-600">Blend 3–5 phơi sáng, cân bằng trắng, kéo chi tiết cửa sổ tự nhiên, thẳng méo, xóa dây điện.</p>
+          <ul class="mt-4 text-sm text-slate-600 space-y-2">
+            <li>✔️ Window Pull tự nhiên</li>
+            <li>✔️ Color cast control</li>
+            <li>✔️ Sharpen sạch sẽ</li>
+          </ul>
+        </div>
+        <div class="p-6 bg-white rounded-2xl shadow-smooth">
+          <div class="text-2xl">🏡 Virtual Staging</div>
+          <p class="mt-2 text-slate-600">Dàn dựng nội thất ảo (phòng khách, ngủ, sân vườn), nhiều phong cách: modern, scandinavian, coastal…</p>
+          <ul class="mt-4 text-sm text-slate-600 space-y-2">
+            <li>✔️ 3–5 set/ảnh</li>
+            <li>✔️ Bố cục hợp lý</li>
+            <li>✔️ Bóng/ánh sáng chân thực</li>
+          </ul>
+        </div>
+        <div class="p-6 bg-white rounded-2xl shadow-smooth">
+          <div class="text-2xl">🧭 Floor Plan & Site Plan</div>
+          <p class="mt-2 text-slate-600">Vẽ 2D/3D, quy chuẩn kích thước, hướng, chú thích phòng; xuất PNG/PDF/SVG.</p>
+          <ul class="mt-4 text-sm text-slate-600 space-y-2">
+            <li>✔️ Clean vector</li>
+            <li>✔️ Branded style</li>
+            <li>✔️ File gốc để sửa</li>
+          </ul>
+        </div>
+        <div class="p-6 bg-white rounded-2xl shadow-smooth">
+          <div class="text-2xl">🌅 Sky/Twilight Replace</div>
+          <p class="mt-2 text-slate-600">Thay bầu trời & twilight tự nhiên, giữ chi tiết kiến trúc, ánh sáng phản chiếu hợp lý.</p>
+          <ul class="mt-4 text-sm text-slate-600 space-y-2">
+            <li>✔️ Nhiều preset</li>
+            <li>✔️ Không giả</li>
+            <li>✔️ Consistent màu</li>
+          </ul>
+        </div>
+        <div class="p-6 bg-white rounded-2xl shadow-smooth">
+          <div class="text-2xl">🎥 Reels/Shorts</div>
+          <p class="mt-2 text-slate-600">Cắt dựng 15–60s, nhạc trend, subtitle rõ, hook mạnh — phù hợp agent marketing.</p>
+          <ul class="mt-4 text-sm text-slate-600 space-y-2">
+            <li>✔️ Ratio 9:16/1:1/16:9</li>
+            <li>✔️ Logo & brand kit</li>
+            <li>✔️ Export đa nền tảng</li>
+          </ul>
+        </div>
+        <div class="p-6 bg-white rounded-2xl shadow-smooth">
+          <div class="text-2xl">🧹 Remove Objects</div>
+          <p class="mt-2 text-slate-600">Loại bỏ vật thể 1–10+ items, dọn dây, thùng rác, vết bẩn; đi texture & ánh sáng mượt.</p>
+          <ul class="mt-4 text-sm text-slate-600 space-y-2">
+            <li>✔️ Seamless retouch</li>
+            <li>✔️ Giữ chi tiết</li>
+            <li>✔️ Soát lỗi kỹ</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEFORE / AFTER -->
+  <section id="beforeafter" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-extrabold">Before / After</h2>
+        <p class="mt-3 text-slate-600">Kéo thanh trượt để xem khác biệt.</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-2 gap-8">
+        <!-- Slider 1 -->
+        <div class="ba-wrap aspect-[16/10] shadow-smooth">
+          <img src="https://images.unsplash.com/photo-1501183638710-841dd1904471?q=80&w=1600&auto=format&fit=crop" alt="Before" />
+          <div class="ba-after" style="width:50%">
+            <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600&auto=format&fit=crop" alt="After" />
+          </div>
+          <div class="ba-handle left-1/2"></div>
+          <div class="ba-dot">↔</div>
+          <input type="range" min="0" max="100" value="50" class="absolute bottom-3 left-1/2 -translate-x-1/2 w-4/5" oninput="moveBA(this)"/>
+        </div>
+        <!-- Slider 2 -->
+        <div class="ba-wrap aspect-[16/10] shadow-smooth">
+          <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1600&auto=format&fit=crop" alt="Before" />
+          <div class="ba-after" style="width:50%">
+            <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1600&auto=format&fit=crop" alt="After" />
+          </div>
+          <div class="ba-handle left-1/2"></div>
+          <div class="ba-dot">↔</div>
+          <input type="range" min="0" max="100" value="50" class="absolute bottom-3 left-1/2 -translate-x-1/2 w-4/5" oninput="moveBA(this)"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="py-20 bg-slate-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-extrabold">Gallery</h2>
+        <p class="mt-3 text-slate-600">Một vài ảnh minh họa phong cách xử lý.</p>
+      </div>
+      <div class="mt-10 grid grid-cols-2 md:grid-cols-3 gap-4">
+        <img class="rounded-xl shadow-smooth aspect-[4/3] object-cover" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1200&auto=format&fit=crop" alt="Gallery 1"/>
+        <img class="rounded-xl shadow-smooth aspect-[4/3] object-cover" src="https://images.unsplash.com/photo-1505692794403-34cb4b7c7263?q=80&w=1200&auto=format&fit=crop" alt="Gallery 2"/>
+        <img class="rounded-xl shadow-smooth aspect-[4/3] object-cover" src="https://images.unsplash.com/photo-1504626835342-6b01071d182e?q=80&w=1200&auto=format&fit=crop" alt="Gallery 3"/>
+        <img class="rounded-xl shadow-smooth aspect-[4/3] object-cover" src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1200&auto=format&fit=crop" alt="Gallery 4"/>
+        <img class="rounded-xl shadow-smooth aspect-[4/3] object-cover" src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1200&auto=format&fit=crop" alt="Gallery 5"/>
+        <img class="rounded-xl shadow-smooth aspect-[4/3] object-cover" src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1200&auto=format&fit=crop" alt="Gallery 6"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-extrabold">Bảng giá minh họa</h2>
+        <p class="mt-3 text-slate-600">Giá demo để tham khảo. Có thể tùy chỉnh theo khối lượng và yêu cầu.</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="rounded-2xl border border-slate-200 p-6 shadow-smooth bg-slate-50">
+          <div class="text-sm font-semibold text-indigo-600">Basic</div>
+          <div class="mt-2 text-4xl font-extrabold">$1.2 <span class="text-base text-slate-500">/ảnh</span></div>
+          <ul class="mt-4 text-sm text-slate-600 space-y-2">
+            <li>✔️ HDR blend 3 tấm</li>
+            <li>✔️ WB & Straighten</li>
+            <li>✔️ Window pull nhẹ</li>
+          </ul>
+          <a href="#contact" class="mt-6 inline-block w-full text-center rounded-xl bg-indigo-600 text-white py-2.5 font-semibold hover:bg-indigo-700">Chọn gói</a>
+        </div>
+        <div class="rounded-2xl border-2 border-indigo-600 p-6 shadow-smooth bg-white">
+          <div class="text-sm font-semibold text-indigo-600">Pro • Phổ biến</div>
+          <div class="mt-2 text-4xl font-extrabold">$1.8 <span class="text-base text-slate-500">/ảnh</span></div>
+          <ul class="mt-4 text-sm text-slate-600 space-y-2">
+            <li>✔️ Flambient 3+1</li>
+            <li>✔️ Window pull rõ</li>
+            <li>✔️ Xóa vật nhỏ</li>
+          </ul>
+          <a href="#contact" class="mt-6 inline-block w-full text-center rounded-xl bg-indigo-600 text-white py-2.5 font-semibold hover:bg-indigo-700">Chọn gói</a>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-6 shadow-smooth bg-slate-50">
+          <div class="text-sm font-semibold text-indigo-600">Staging/Extra</div>
+          <div class="mt-2 text-4xl font-extrabold">$8+ <span class="text-base text-slate-500">/ảnh</span></div>
+          <ul class="mt-4 text-sm text-slate-600 space-y-2">
+            <li>✔️ Virtual staging</li>
+            <li>✔️ Twilight replace</li>
+            <li>✔️ Remove 1–10 items</li>
+          </ul>
+          <a href="#contact" class="mt-6 inline-block w-full text-center rounded-xl bg-indigo-600 text-white py-2.5 font-semibold hover:bg-indigo-700">Chọn gói</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-20 bg-slate-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-extrabold">Khách hàng nói gì</h2>
+        <p class="mt-3 text-slate-600">Từ agent & studio ở AU/US.</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl p-6 shadow-smooth">
+          <div class="text-yellow-500">★★★★★</div>
+          <p class="mt-3 text-slate-700">“Ảnh consistent, window pull đẹp, giao nhanh 12h.”</p>
+          <div class="mt-4 text-sm text-slate-500">— Ben, Sydney</div>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-smooth">
+          <div class="text-yellow-500">★★★★★</div>
+          <p class="mt-3 text-slate-700">“Staging tự nhiên, khách xem là mê. Giá hợp lý.”</p>
+          <div class="mt-4 text-sm text-slate-500">— Mark, Melbourne</div>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-smooth">
+          <div class="text-yellow-500">★★★★★</div>
+          <p class="mt-3 text-slate-700">“Support nhiệt tình, sửa nhanh đúng ý.”</p>
+          <div class="mt-4 text-sm text-slate-500">— Brian, California</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-indigo-600 text-white">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <h3 class="text-2xl md:text-3xl font-extrabold">Sẵn sàng tăng chất lượng listing của bạn?</h3>
+        <p class="text-white/90 mt-1">Gửi thử 10 ảnh — nhận kết quả trong 12–24h.</p>
+      </div>
+      <a href="#contact" class="rounded-2xl bg-white text-indigo-700 px-6 py-3 font-semibold hover:bg-slate-100">Nhận báo giá</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-extrabold">Liên hệ</h2>
+          <p class="mt-3 text-slate-600">Cho chúng tôi biết nhu cầu của bạn, team sẽ phản hồi ngay.</p>
+          <ul class="mt-6 space-y-2 text-slate-700">
+            <li>✉️ hello@fotoservices.com</li>
+            <li>📞 +84 90 000 0000</li>
+            <li>🌐 www.fotoservices.com</li>
+          </ul>
+          <div class="mt-8 p-4 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-600">
+            *Form demo chưa kết nối backend. Có thể tích hợp Google Forms, Notion Forms, hoặc email trực tiếp.
+          </div>
+        </div>
+        <form class="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-smooth" onsubmit="event.preventDefault();alert('Cảm ơn bạn! Đây là form demo.');">
+          <label class="block text-sm font-medium">Tên của bạn</label>
+          <input required class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-2" placeholder="Nguyen Nguyen" />
+          <label class="block text-sm font-medium mt-4">Email</label>
+          <input required type="email" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-2" placeholder="you@email.com" />
+          <label class="block text-sm font-medium mt-4">Nội dung</label>
+          <textarea rows="4" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-2" placeholder="Mô tả nhu cầu, số lượng ảnh, deadline…"></textarea>
+          <button class="mt-5 w-full rounded-xl bg-indigo-600 text-white py-2.5 font-semibold hover:bg-indigo-700">Gửi yêu cầu</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 bg-slate-900 text-white">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-white/80">© <span id="year"></span> Foto Services. All rights reserved.</div>
+      <div class="text-white/60 text-sm">Made for demo • Inspired by beepec.com layout</div>
+    </div>
+  </footer>
+
+  <script>
+    // Before/After range handler
+    function moveBA(input){
+      const wrap = input.parentElement;
+      const after = wrap.querySelector('.ba-after');
+      const handle = wrap.querySelector('.ba-handle');
+      const pct = input.value;
+      after.style.width = pct + '%';
+      handle.style.left = pct + '%';
+      const dot = wrap.querySelector('.ba-dot');
+      dot.style.left = pct + '%';
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

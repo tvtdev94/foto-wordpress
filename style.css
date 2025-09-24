@@ -1,0 +1,83 @@
+/*
+Theme Name: Foto Services
+Description: WordPress theme for photo editing services with complete customizer control
+Version: 1.0
+Author: Foto Services
+*/
+
+:root {
+    --brand: #0f172a;
+}
+
+html, body {
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Before/After slider */
+.ba-wrap {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.ba-wrap img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ba-after {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.ba-handle {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 3px;
+    height: 100%;
+    background: white;
+    box-shadow: 0 0 0 2px rgba(15,23,42,.2);
+}
+
+.ba-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 9999px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
+}
+
+.container {
+    max-width: 1200px;
+}
+
+.shadow-smooth {
+    box-shadow: 0 10px 30px rgba(2,6,23,.08);
+}
+
+.badge {
+    border: 1px solid rgba(15,23,42,.1);
+    background: rgba(255,255,255,.7);
+    backdrop-filter: blur(6px);
+}
+
+/* Green checkmarks for features */
+.service-feature {
+    color: #475569; /* text-slate-600 */
+}
+
+.service-feature::before {
+    content: "✔️ ";
+    color: #059669; /* green for checkmark */
+}
