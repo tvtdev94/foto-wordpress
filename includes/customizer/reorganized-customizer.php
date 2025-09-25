@@ -70,12 +70,12 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
 
     // ========================================
-    // 3. HERO CONTENT
+    // 3. HERO SECTION
     // ========================================
-    $wp_customize->add_section('hero_content', array(
-        'title' => 'Hero Content',
+    $wp_customize->add_section('hero_section', array(
+        'title' => 'Hero Section',
         'priority' => 20,
-        'description' => 'Nội dung chính của phần hero',
+        'description' => 'Cài đặt nội dung và hình nền cho phần hero',
     ));
 
     // Top Badge
@@ -85,7 +85,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
     $wp_customize->add_control('hero_badge_text', array(
         'label' => '📝 Top Badge Text',
-        'section' => 'hero_content',
+        'section' => 'hero_section',
         'type' => 'text',
         'priority' => 10,
     ));
@@ -97,7 +97,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
     $wp_customize->add_control('hero_title', array(
         'label' => '🏆 Main Title (Part 1)',
-        'section' => 'hero_content',
+        'section' => 'hero_section',
         'type' => 'text',
         'priority' => 20,
     ));
@@ -108,7 +108,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
     $wp_customize->add_control('hero_title_highlight', array(
         'label' => '🎯 Main Title (Part 2 - Highlighted)',
-        'section' => 'hero_content',
+        'section' => 'hero_section',
         'type' => 'text',
         'priority' => 30,
     ));
@@ -120,7 +120,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
     $wp_customize->add_control('hero_description', array(
         'label' => '📄 Hero Description',
-        'section' => 'hero_content',
+        'section' => 'hero_section',
         'type' => 'textarea',
         'priority' => 40,
     ));
@@ -132,7 +132,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
     $wp_customize->add_control('hero_button1_text', array(
         'label' => '🔵 Primary Button Text',
-        'section' => 'hero_content',
+        'section' => 'hero_section',
         'type' => 'text',
         'priority' => 50,
     ));
@@ -143,7 +143,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
     $wp_customize->add_control('hero_button2_text', array(
         'label' => '⚪ Secondary Button Text',
-        'section' => 'hero_content',
+        'section' => 'hero_section',
         'type' => 'text',
         'priority' => 60,
     ));
@@ -155,7 +155,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
     $wp_customize->add_control('hero_badge1', array(
         'label' => '🏷️ Feature Badge 1',
-        'section' => 'hero_content',
+        'section' => 'hero_section',
         'type' => 'text',
         'priority' => 70,
     ));
@@ -166,7 +166,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
     $wp_customize->add_control('hero_badge2', array(
         'label' => '🏷️ Feature Badge 2',
-        'section' => 'hero_content',
+        'section' => 'hero_section',
         'type' => 'text',
         'priority' => 80,
     ));
@@ -177,36 +177,29 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
     $wp_customize->add_control('hero_badge3', array(
         'label' => '🏷️ Feature Badge 3',
-        'section' => 'hero_content',
+        'section' => 'hero_section',
         'type' => 'text',
         'priority' => 90,
     ));
 
-    // ========================================
-    // 4. HERO BACKGROUND
-    // ========================================
-    $wp_customize->add_section('hero_background', array(
-        'title' => 'Hero Background',
-        'priority' => 25,
-        'description' => 'Hình nền cho phần hero',
-    ));
-
+    // Hero Background Image
     $wp_customize->add_setting('hero_background_image', array(
         'default' => '',
         'sanitize_callback' => 'esc_url_raw',
     ));
     $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'hero_background_image', array(
-        'label' => 'Hero Background Image',
-        'section' => 'hero_background',
+        'label' => '🖼️ Hero Background Image',
+        'section' => 'hero_section',
         'settings' => 'hero_background_image',
+        'priority' => 100,
     )));
 
     // ========================================
-    // 5. STATISTICS SECTION
+    // 4. STATISTICS SECTION
     // ========================================
     $wp_customize->add_section('stats_section', array(
         'title' => 'Statistics Section',
-        'priority' => 30,
+        'priority' => 25,
         'description' => 'Cài đặt phần thống kê số liệu',
     ));
 
@@ -240,11 +233,11 @@ function foto_services_reorganized_customizer($wp_customize) {
     }
 
     // ========================================
-    // 6. COMPANY DESCRIPTION
+    // 5. COMPANY DESCRIPTION
     // ========================================
     $wp_customize->add_section('company_description', array(
         'title' => 'Company Description',
-        'priority' => 33,
+        'priority' => 30,
         'description' => 'Mô tả về công ty và dịch vụ',
     ));
 
@@ -275,7 +268,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     ));
 
     // ========================================
-    // 7. SERVICES CONTENT
+    // 6. SERVICES CONTENT
     // ========================================
     $wp_customize->add_section('services_content', array(
         'title' => 'Services Content',
@@ -390,7 +383,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('how_it_works_section', array(
         'title' => 'How It Works',
-        'priority' => 38,
+        'priority' => 40,
         'description' => 'Quy trình làm việc đơn giản và rõ ràng',
     ));
 
@@ -416,7 +409,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
 
     // Step 1
     $wp_customize->add_setting('how_it_works_step_1_title', array(
-        'default' => '1. Upload',
+        'default' => 'Upload',
         'sanitize_callback' => 'sanitize_text_field',
     ));
     $wp_customize->add_control('how_it_works_step_1_title', array(
@@ -436,7 +429,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
 
     // Step 2
     $wp_customize->add_setting('how_it_works_step_2_title', array(
-        'default' => '2. Relax',
+        'default' => 'Relax',
         'sanitize_callback' => 'sanitize_text_field',
     ));
     $wp_customize->add_control('how_it_works_step_2_title', array(
@@ -456,7 +449,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
 
     // Step 3
     $wp_customize->add_setting('how_it_works_step_3_title', array(
-        'default' => '3. Quality Check',
+        'default' => 'Quality Check',
         'sanitize_callback' => 'sanitize_text_field',
     ));
     $wp_customize->add_control('how_it_works_step_3_title', array(
@@ -476,7 +469,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
 
     // Step 4
     $wp_customize->add_setting('how_it_works_step_4_title', array(
-        'default' => '4. Delivery',
+        'default' => 'Delivery',
         'sanitize_callback' => 'sanitize_text_field',
     ));
     $wp_customize->add_control('how_it_works_step_4_title', array(
@@ -499,7 +492,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('services_gallery_images', array(
         'title' => 'Gallery Images',
-        'priority' => 40,
+        'priority' => 45,
         'description' => 'Hình ảnh minh họa cho các dịch vụ',
     ));
 
@@ -552,7 +545,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('gallery_section', array(
         'title' => 'Gallery Section',
-        'priority' => 45,
+        'priority' => 50,
         'description' => 'Cài đặt phần gallery chính',
     ));
 
@@ -592,7 +585,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('beforeafter_content', array(
         'title' => 'Before/After Section',
-        'priority' => 50,
+        'priority' => 55,
         'description' => 'Nội dung phần before/after',
     ));
 
@@ -620,7 +613,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('beforeafter_images', array(
         'title' => 'Before/After Images',
-        'priority' => 55,
+        'priority' => 60,
         'description' => 'Hình ảnh before/after',
     ));
 
@@ -652,7 +645,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('pricing_content', array(
         'title' => 'Pricing Section',
-        'priority' => 60,
+        'priority' => 65,
         'description' => 'Nội dung phần pricing',
     ));
 
@@ -680,7 +673,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('pricing_services', array(
         'title' => 'Pricing Services',
-        'priority' => 65,
+        'priority' => 70,
         'description' => 'Cài đặt các dịch vụ và giá',
     ));
 
@@ -763,7 +756,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('pricing_bottom', array(
         'title' => 'Pricing Bottom Section',
-        'priority' => 70,
+        'priority' => 75,
         'description' => 'Phần cuối của pricing',
     ));
 
@@ -805,7 +798,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('testimonials_content', array(
         'title' => 'Testimonials Content',
-        'priority' => 75,
+        'priority' => 80,
         'description' => 'Nội dung testimonials',
     ));
 
@@ -857,7 +850,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('cta_content', array(
         'title' => 'CTA Section',
-        'priority' => 80,
+        'priority' => 85,
         'description' => 'Phần call-to-action',
     ));
 
@@ -894,7 +887,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('contact_content', array(
         'title' => 'Contact Section',
-        'priority' => 85,
+        'priority' => 90,
         'description' => 'Nội dung phần contact',
     ));
 
@@ -922,7 +915,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('contact_form', array(
         'title' => 'Contact Form Content',
-        'priority' => 90,
+        'priority' => 95,
         'description' => 'Nội dung form liên hệ',
     ));
 
@@ -954,7 +947,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('email_settings', array(
         'title' => 'Email Settings',
-        'priority' => 95,
+        'priority' => 100,
         'description' => 'Cài đặt email',
     ));
 
@@ -994,7 +987,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('color_scheme', array(
         'title' => 'Color Scheme',
-        'priority' => 100,
+        'priority' => 105,
         'description' => 'Bảng màu chủ đạo',
     ));
 
@@ -1021,7 +1014,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('layout_options', array(
         'title' => 'Layout Options',
-        'priority' => 105,
+        'priority' => 110,
         'description' => 'Tùy chọn bố cục',
     ));
 
@@ -1069,7 +1062,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('menu_settings', array(
         'title' => 'Menu',
-        'priority' => 110,
+        'priority' => 115,
         'description' => 'Cài đặt menu navigation',
     ));
 
@@ -1094,7 +1087,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('homepage_settings', array(
         'title' => 'Cài đặt Trang chủ',
-        'priority' => 115,
+        'priority' => 120,
         'description' => 'Cài đặt tổng quan cho trang chủ',
     ));
 
@@ -1118,7 +1111,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('custom_css', array(
         'title' => 'CSS bổ sung',
-        'priority' => 120,
+        'priority' => 125,
         'description' => 'Thêm CSS tùy chỉnh',
     ));
 

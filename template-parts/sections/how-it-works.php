@@ -12,12 +12,31 @@ if (!defined('ABSPATH')) {
 $section_title = get_theme_mod('how_it_works_title', 'How It Works');
 $section_subtitle = get_theme_mod('how_it_works_subtitle', 'A simple, clear process from upload to delivery.');
 
-// Get all steps
+// Get all steps with default values
 $steps = array();
+$default_steps = array(
+    1 => array(
+        'title' => 'Upload',
+        'description' => 'Send your RAW/JPEG photos via Google Drive, Dropbox, or other links.'
+    ),
+    2 => array(
+        'title' => 'Relax',
+        'description' => 'Rest well while our editors carefully process all your files overnight.'
+    ),
+    3 => array(
+        'title' => 'Quality Check',
+        'description' => 'Two-step QC ensures accuracy, consistency, and professional results.'
+    ),
+    4 => array(
+        'title' => 'Delivery',
+        'description' => 'Receive your results within 12–24 hours. Usually ready the next morning, fully edited and ready to download.'
+    )
+);
+
 for ($i = 1; $i <= 4; $i++) {
     $steps[$i] = array(
-        'title' => get_theme_mod("how_it_works_step_{$i}_title", ''),
-        'description' => get_theme_mod("how_it_works_step_{$i}_description", '')
+        'title' => get_theme_mod("how_it_works_step_{$i}_title", $default_steps[$i]['title']),
+        'description' => get_theme_mod("how_it_works_step_{$i}_description", $default_steps[$i]['description'])
     );
 }
 ?>

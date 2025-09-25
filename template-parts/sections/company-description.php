@@ -19,19 +19,19 @@ By combining the power of AI technology with the artistry of our experienced edi
 Fast turnaround, professional QC, and dedicated support make Foto Services the trusted partner for agents, studios, and brands worldwide.');
 ?>
 
-<section class="company-description-section py-16 bg-gray-50">
-    <div class="w-full px-4">
-        <div class="w-full">
-            <div class="bg-white border border-gray-200 rounded-xl p-8 shadow-lg">
+<section class="company-description-section py-20 bg-slate-50">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-white rounded-2xl p-8 shadow-smooth">
                 <div class="text-center">
                     <?php if ($company_title): ?>
-                        <h2 class="text-4xl font-bold text-blue-600 mb-6">
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-blue-600 mb-6">
                             <?php echo esc_html($company_title); ?>
                         </h2>
                     <?php endif; ?>
                     
                     <?php if ($company_description): ?>
-                        <div class="text-lg text-gray-700 leading-relaxed space-y-4">
+                        <div class="text-lg text-slate-700 leading-relaxed space-y-4">
                             <?php echo wp_kses_post(wpautop($company_description)); ?>
                         </div>
                     <?php endif; ?>
