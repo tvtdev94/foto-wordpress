@@ -21,7 +21,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
 
     $wp_customize->add_setting('contact_email', array(
-        'default' => 'hello@fotoservices.com',
+        'default' => 'Editingservices.vn@gmail.com',
         'sanitize_callback' => 'sanitize_email',
     ));
     $wp_customize->add_control('contact_email', array(
@@ -31,7 +31,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
 
     $wp_customize->add_setting('contact_phone', array(
-        'default' => '+84 90 000 0000',
+        'default' => '+84 949494217',
         'sanitize_callback' => 'sanitize_text_field',
     ));
     $wp_customize->add_control('contact_phone', array(
@@ -41,7 +41,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
 
     $wp_customize->add_setting('contact_website', array(
-        'default' => 'www.fotoservices.com',
+        'default' => 'www.foto-services.com',
         'sanitize_callback' => 'sanitize_text_field',
     ));
     $wp_customize->add_control('contact_website', array(
@@ -240,7 +240,42 @@ function foto_services_reorganized_customizer($wp_customize) {
     }
 
     // ========================================
-    // 6. SERVICES CONTENT
+    // 6. COMPANY DESCRIPTION
+    // ========================================
+    $wp_customize->add_section('company_description', array(
+        'title' => 'Company Description',
+        'priority' => 33,
+        'description' => 'Mô tả về công ty và dịch vụ',
+    ));
+
+    $wp_customize->add_setting('company_title', array(
+        'default' => 'Foto Services',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('company_title', array(
+        'label' => 'Company Title',
+        'section' => 'company_description',
+        'type' => 'text',
+    ));
+
+    $wp_customize->add_setting('company_description_text', array(
+        'default' => 'At Foto Services, we deliver world-class post-production for real estate and commercial photography. Our team in Vietnam is committed to uncompromising quality while keeping pricing competitive.
+
+We proudly use 100% licensed software and work exclusively on macOS workstations with highly calibrated displays. This ensures absolute precision in color accuracy and consistency across every project.
+
+By combining the power of AI technology with the artistry of our experienced editors, we provide the best performance-to-price ratio in the market. Every image, video, staging, or floor plan is refined to help your listings and products stand out from the competition.
+
+Fast turnaround, professional QC, and dedicated support make Foto Services the trusted partner for agents, studios, and brands worldwide.',
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ));
+    $wp_customize->add_control('company_description_text', array(
+        'label' => 'Company Description',
+        'section' => 'company_description',
+        'type' => 'textarea',
+    ));
+
+    // ========================================
+    // 7. SERVICES CONTENT
     // ========================================
     $wp_customize->add_section('services_content', array(
         'title' => 'Services Content',
@@ -351,11 +386,120 @@ function foto_services_reorganized_customizer($wp_customize) {
     }
 
     // ========================================
-    // 7. GALLERY IMAGES
+    // 7. HOW IT WORKS
+    // ========================================
+    $wp_customize->add_section('how_it_works_section', array(
+        'title' => 'How It Works',
+        'priority' => 38,
+        'description' => 'Quy trình làm việc đơn giản và rõ ràng',
+    ));
+
+    $wp_customize->add_setting('how_it_works_title', array(
+        'default' => 'How It Works',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('how_it_works_title', array(
+        'label' => 'Section Title',
+        'section' => 'how_it_works_section',
+        'type' => 'text',
+    ));
+
+    $wp_customize->add_setting('how_it_works_subtitle', array(
+        'default' => 'A simple, clear process from upload to delivery.',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('how_it_works_subtitle', array(
+        'label' => 'Section Subtitle',
+        'section' => 'how_it_works_section',
+        'type' => 'textarea',
+    ));
+
+    // Step 1
+    $wp_customize->add_setting('how_it_works_step_1_title', array(
+        'default' => '1. Upload',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('how_it_works_step_1_title', array(
+        'label' => 'Step 1 Title',
+        'section' => 'how_it_works_section',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('how_it_works_step_1_description', array(
+        'default' => 'Send your RAW/JPEG photos via Google Drive, Dropbox, or other links.',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('how_it_works_step_1_description', array(
+        'label' => 'Step 1 Description',
+        'section' => 'how_it_works_section',
+        'type' => 'textarea',
+    ));
+
+    // Step 2
+    $wp_customize->add_setting('how_it_works_step_2_title', array(
+        'default' => '2. Relax',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('how_it_works_step_2_title', array(
+        'label' => 'Step 2 Title',
+        'section' => 'how_it_works_section',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('how_it_works_step_2_description', array(
+        'default' => 'Rest well while our editors carefully process all your files overnight.',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('how_it_works_step_2_description', array(
+        'label' => 'Step 2 Description',
+        'section' => 'how_it_works_section',
+        'type' => 'textarea',
+    ));
+
+    // Step 3
+    $wp_customize->add_setting('how_it_works_step_3_title', array(
+        'default' => '3. Quality Check',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('how_it_works_step_3_title', array(
+        'label' => 'Step 3 Title',
+        'section' => 'how_it_works_section',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('how_it_works_step_3_description', array(
+        'default' => 'Two-step QC ensures accuracy, consistency, and professional results.',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('how_it_works_step_3_description', array(
+        'label' => 'Step 3 Description',
+        'section' => 'how_it_works_section',
+        'type' => 'textarea',
+    ));
+
+    // Step 4
+    $wp_customize->add_setting('how_it_works_step_4_title', array(
+        'default' => '4. Delivery',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('how_it_works_step_4_title', array(
+        'label' => 'Step 4 Title',
+        'section' => 'how_it_works_section',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('how_it_works_step_4_description', array(
+        'default' => 'Receive your results within 12–24 hours. Usually ready the next morning, fully edited and ready to download.',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('how_it_works_step_4_description', array(
+        'label' => 'Step 4 Description',
+        'section' => 'how_it_works_section',
+        'type' => 'textarea',
+    ));
+
+    // ========================================
+    // 8. GALLERY IMAGES
     // ========================================
     $wp_customize->add_section('services_gallery_images', array(
         'title' => 'Gallery Images',
-        'priority' => 46,
+        'priority' => 40,
         'description' => 'Hình ảnh minh họa cho các dịch vụ',
     ));
 
@@ -404,7 +548,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     }
 
     // ========================================
-    // 8. GALLERY SECTION
+    // 9. GALLERY SECTION
     // ========================================
     $wp_customize->add_section('gallery_section', array(
         'title' => 'Gallery Section',
@@ -444,7 +588,7 @@ function foto_services_reorganized_customizer($wp_customize) {
 
 
     // ========================================
-    // 8. BEFORE/AFTER SECTION
+    // 10. BEFORE/AFTER SECTION
     // ========================================
     $wp_customize->add_section('beforeafter_content', array(
         'title' => 'Before/After Section',
@@ -472,7 +616,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
 
     // ========================================
-    // 9. BEFORE/AFTER IMAGES
+    // 11. BEFORE/AFTER IMAGES
     // ========================================
     $wp_customize->add_section('beforeafter_images', array(
         'title' => 'Before/After Images',
@@ -504,7 +648,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     }
 
     // ========================================
-    // 10. PRICING SECTION
+    // 12. PRICING SECTION
     // ========================================
     $wp_customize->add_section('pricing_content', array(
         'title' => 'Pricing Section',
@@ -532,7 +676,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
 
     // ========================================
-    // 11. PRICING SERVICES
+    // 13. PRICING SERVICES
     // ========================================
     $wp_customize->add_section('pricing_services', array(
         'title' => 'Pricing Services',
@@ -615,7 +759,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     }
 
     // ========================================
-    // 12. PRICING BOTTOM SECTION
+    // 14. PRICING BOTTOM SECTION
     // ========================================
     $wp_customize->add_section('pricing_bottom', array(
         'title' => 'Pricing Bottom Section',
@@ -657,7 +801,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
 
     // ========================================
-    // 13. TESTIMONIALS CONTENT
+    // 15. TESTIMONIALS CONTENT
     // ========================================
     $wp_customize->add_section('testimonials_content', array(
         'title' => 'Testimonials Content',
@@ -666,7 +810,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
 
     $wp_customize->add_setting('testimonials_title', array(
-        'default' => 'Khách hàng nói gì',
+        'default' => 'What Our Clients Say',
         'sanitize_callback' => 'sanitize_text_field',
     ));
     $wp_customize->add_control('testimonials_title', array(
@@ -675,7 +819,7 @@ function foto_services_reorganized_customizer($wp_customize) {
         'type' => 'text',
     ));
     $wp_customize->add_setting('testimonials_subtitle', array(
-        'default' => 'Từ agent & studio ở AU/US.',
+        'default' => 'Real feedback from professionals who trust Foto Services.',
         'sanitize_callback' => 'sanitize_text_field',
     ));
     $wp_customize->add_control('testimonials_subtitle', array(
@@ -685,9 +829,12 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
 
     $testimonials = array(
-        1 => array('rating' => '★★★★★', 'content' => '"Ảnh consistent, window pull đẹp, giao nhanh 12h."', 'author' => 'Ben', 'location' => 'Sydney'),
-        2 => array('rating' => '★★★★★', 'content' => '"Staging tự nhiên, khách xem là mê. Giá hợp lý."', 'author' => 'Mark', 'location' => 'Melbourne'),
-        3 => array('rating' => '★★★★★', 'content' => '"Support nhiệt tình, sửa nhanh đúng ý."', 'author' => 'Brian', 'location' => 'California')
+        1 => array('rating' => '★★★★★', 'content' => '"Incredible quality and super fast turnaround. Exactly what my listings needed!"', 'author' => 'Sarah', 'location' => 'Real Estate Agent'),
+        2 => array('rating' => '★★★★★', 'content' => '"The virtual staging looked so real my clients couldn\'t believe it wasn\'t actual furniture."', 'author' => 'David', 'location' => 'Broker'),
+        3 => array('rating' => '★★★★★', 'content' => '"HDR + Flash editing brought out every detail perfectly. Amazing work."', 'author' => 'Amanda', 'location' => 'Photographer'),
+        4 => array('rating' => '★★★★★', 'content' => '"Consistent quality and always delivered on time. I highly recommend Foto Services."', 'author' => 'James', 'location' => 'Property Manager'),
+        5 => array('rating' => '★★★★★', 'content' => '"Great communication, fair pricing, and excellent results. 5 stars!"', 'author' => 'Olivia', 'location' => 'Realtor'),
+        6 => array('rating' => '★★★★★', 'content' => '"They saved me hours of editing so I can focus on my clients. Brilliant service."', 'author' => 'Michael', 'location' => 'Real Estate Agent')
     );
 
     foreach ($testimonials as $num => $data) {
@@ -706,7 +853,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     }
 
     // ========================================
-    // 14. CTA SECTION
+    // 16. CTA SECTION
     // ========================================
     $wp_customize->add_section('cta_content', array(
         'title' => 'CTA Section',
@@ -743,7 +890,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
 
     // ========================================
-    // 15. CONTACT SECTION
+    // 17. CONTACT SECTION
     // ========================================
     $wp_customize->add_section('contact_content', array(
         'title' => 'Contact Section',
@@ -771,7 +918,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
 
     // ========================================
-    // 16. CONTACT FORM CONTENT
+    // 18. CONTACT FORM CONTENT
     // ========================================
     $wp_customize->add_section('contact_form', array(
         'title' => 'Contact Form Content',
@@ -803,7 +950,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     }
 
     // ========================================
-    // 17. EMAIL SETTINGS
+    // 19. EMAIL SETTINGS
     // ========================================
     $wp_customize->add_section('email_settings', array(
         'title' => 'Email Settings',
@@ -843,7 +990,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
 
     // ========================================
-    // 18. COLOR SCHEME
+    // 20. COLOR SCHEME
     // ========================================
     $wp_customize->add_section('color_scheme', array(
         'title' => 'Color Scheme',
@@ -870,7 +1017,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     }
 
     // ========================================
-    // 19. LAYOUT OPTIONS
+    // 21. LAYOUT OPTIONS
     // ========================================
     $wp_customize->add_section('layout_options', array(
         'title' => 'Layout Options',
@@ -918,7 +1065,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
 
     // ========================================
-    // 20. MENU
+    // 22. MENU
     // ========================================
     $wp_customize->add_section('menu_settings', array(
         'title' => 'Menu',
@@ -943,7 +1090,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
 
     // ========================================
-    // 21. CÀI ĐẶT TRANG CHỦ
+    // 23. CÀI ĐẶT TRANG CHỦ
     // ========================================
     $wp_customize->add_section('homepage_settings', array(
         'title' => 'Cài đặt Trang chủ',
@@ -967,7 +1114,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
 
     // ========================================
-    // 22. CSS BỔ SUNG
+    // 24. CSS BỔ SUNG
     // ========================================
     $wp_customize->add_section('custom_css', array(
         'title' => 'CSS bổ sung',

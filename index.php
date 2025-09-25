@@ -4,7 +4,11 @@
 
 <?php get_template_part('template-parts/sections/stats'); ?>
 
+<?php get_template_part('template-parts/sections/company-description'); ?>
+
 <?php get_template_part('template-parts/sections/services'); ?>
+
+<?php get_template_part('template-parts/sections/how-it-works'); ?>
 
 <?php get_template_part('template-parts/sections/beforeafter'); ?>
 
