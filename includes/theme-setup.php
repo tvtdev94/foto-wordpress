@@ -33,7 +33,7 @@ function foto_services_scripts() {
     wp_enqueue_style('foto-services-style', get_stylesheet_uri(), array(), wp_get_theme()->get('Version'));
 
     // Enqueue custom JS
-    wp_enqueue_script('foto-services-script', get_template_directory_uri() . '/js/script.js', array(), wp_get_theme()->get('Version'), true);
+    wp_enqueue_script('foto-services-script', get_template_directory_uri() . '/js/script.js', array(), time(), true);
 }
 add_action('wp_enqueue_scripts', 'foto_services_scripts');
 

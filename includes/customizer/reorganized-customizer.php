@@ -50,7 +50,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     ));
 
     $wp_customize->add_setting('contact_email', array(
-        'default' => 'Editingservices.vn@gmail.com',
+        'default' => 'editingservices.vn@gmail.com',
         'sanitize_callback' => 'sanitize_email',
     ));
     $wp_customize->add_control('contact_email', array(
@@ -77,6 +77,17 @@ function foto_services_reorganized_customizer($wp_customize) {
         'label' => 'Website URL',
         'section' => 'contact_info',
         'type' => 'text',
+    ));
+
+    $wp_customize->add_setting('contact_header_text', array(
+        'default' => 'Let\'s work together!',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('contact_header_text', array(
+        'label' => 'Contact Header Text',
+        'section' => 'contact_info',
+        'type' => 'text',
+        'description' => 'Text hiển thị ở đầu phần liên hệ',
     ));
 
     // ========================================
@@ -922,7 +933,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     ));
 
     $wp_customize->add_setting('contact_title', array(
-        'default' => 'Liên hệ',
+        'default' => 'Let\'s work together!',
         'sanitize_callback' => 'sanitize_text_field',
     ));
     $wp_customize->add_control('contact_title', array(

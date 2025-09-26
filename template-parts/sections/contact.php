@@ -3,7 +3,7 @@
     <div class="container mx-auto px-4">
         <div class="grid md:grid-cols-2 gap-10 items-start">
             <div>
-                <h2 class="text-3xl md:text-4xl font-extrabold"><?php echo esc_html(get_theme_mod('contact_title', 'Liên hệ')); ?></h2>
+                <h2 class="text-3xl md:text-4xl font-extrabold"><?php echo esc_html(get_theme_mod('contact_title', 'Let\'s work together!')); ?></h2>
                 <p class="mt-3 text-slate-600"><?php echo esc_html(get_theme_mod('contact_subtitle', 'Cho chúng tôi biết nhu cầu của bạn, team sẽ phản hồi ngay.')); ?></p>
                 <ul class="mt-6 space-y-2 text-slate-700">
                     <li>✉️ <?php echo esc_html(get_theme_mod('contact_email', 'hello@fotoservices.com')); ?></li>

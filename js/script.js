@@ -204,10 +204,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     const img = document.createElement('img');
                     img.src = thumb;
                     img.alt = `${serviceData.title} example ${index + 1}`;
-                    img.className = 'w-full h-32 object-cover rounded-lg shadow-smooth cursor-pointer hover:scale-105 transition-transform duration-300';
+                    img.className = 'w-full h-40 object-cover rounded-lg shadow-smooth cursor-pointer hover:scale-105 transition-transform duration-300';
 
                     // Add click handler for full view in modal
-                    img.addEventListener('click', function() {
+                    img.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
                         showImageModal(thumb.replace('w=400', 'w=1200'));
                     });
 
@@ -216,7 +218,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 modal.classList.remove('hidden');
                 modal.classList.add('flex');
-                modal.style.display = 'flex'; // Explicitly set display
                 document.body.style.overflow = 'hidden';
             }
         });
@@ -227,7 +228,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const modal = document.getElementById('servicesModal');
         modal.classList.add('hidden');
         modal.classList.remove('flex');
-        modal.style.display = 'none'; // Ensure it's hidden
         document.body.style.overflow = 'auto';
     }
 
@@ -264,7 +264,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const servicesModal = document.getElementById('servicesModal');
 
         // Hide services modal temporarily
-        servicesModal.style.display = 'none';
+        servicesModal.classList.add('hidden');
+        servicesModal.classList.remove('flex');
 
         modalImage.src = imageUrl;
         imageModal.classList.remove('hidden');
@@ -278,10 +279,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         imageModal.classList.add('hidden');
         imageModal.classList.remove('flex');
-        imageModal.style.display = 'none';
 
         // Show services modal again
-        servicesModal.style.display = 'flex';
         servicesModal.classList.remove('hidden');
         servicesModal.classList.add('flex');
         document.body.style.overflow = 'hidden'; // Keep body overflow hidden because services modal is still open

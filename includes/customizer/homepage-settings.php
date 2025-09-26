@@ -370,7 +370,7 @@ function foto_services_homepage_customizer($wp_customize) {
     ));
 
     $wp_customize->add_setting('contact_title', array(
-        'default' => 'Liên hệ',
+        'default' => 'Let\'s work together!',
         'sanitize_callback' => 'sanitize_text_field',
     ));
     $wp_customize->add_control('contact_title', array(

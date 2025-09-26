@@ -1,10 +1,10 @@
 <!-- SERVICES MODAL -->
 <div id="servicesModal" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden items-center justify-center p-4">
-    <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+    <div class="bg-white rounded-2xl max-w-6xl w-full max-h-[95vh] overflow-y-auto">
         <div class="p-6">
             <div class="flex items-center justify-between mb-6">
                 <h2 id="modalTitle" class="text-2xl md:text-3xl font-extrabold"></h2>
-                <button id="closeModal" class="text-gray-500 hover:text-gray-700 p-2">
+                <button id="closeModal" class="text-gray-600 hover:text-gray-800 p-2 rounded-full border-2 border-gray-300 hover:border-gray-400 bg-white hover:bg-gray-50 transition-all duration-200">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
@@ -16,7 +16,7 @@
                 <p id="modalDetails" class="text-slate-500 text-sm"></p>
             </div>
 
-            <div id="modalThumbnails" class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div id="modalThumbnails" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
                 <!-- Thumbnails sẽ được thêm bằng JavaScript -->
             </div>
         </div>
@@ -26,7 +26,7 @@
 <!-- IMAGE MODAL -->
 <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-90 z-60 hidden items-center justify-center p-4">
     <div class="relative max-w-6xl w-full max-h-[90vh] flex items-center justify-center">
-        <button id="closeImageModal" class="absolute top-4 right-4 text-white hover:text-gray-300 p-2 z-10">
+        <button id="closeImageModal" class="absolute top-4 right-4 text-white hover:text-gray-200 p-3 z-10 rounded-full border-2 border-white/30 hover:border-white/50 bg-black/20 hover:bg-black/30 backdrop-blur-sm transition-all duration-200">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
             </svg>

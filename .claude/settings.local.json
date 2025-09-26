@@ -3,7 +3,8 @@
     "allow": [
       "Bash(mkdir:*)",
       "Bash(robocopy:*)",
-      "Bash(xcopy:*)"
+      "Bash(xcopy:*)",
+      "Bash(node:*)"
     ],
     "deny": [],
     "ask": []
