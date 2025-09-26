@@ -9,6 +9,35 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+// ========================================
+// CUSTOMIZER SECTION PRIORITIES
+// ========================================
+// Easily manage section order by changing these constants
+define('FOTO_PRIORITY_CONTACT_INFO', 10);
+define('FOTO_PRIORITY_HEADER_BUTTONS', 15);
+define('FOTO_PRIORITY_HERO_SECTION', 20);
+define('FOTO_PRIORITY_STATS_SECTION', 25);
+define('FOTO_PRIORITY_COMPANY_DESCRIPTION', 30);
+define('FOTO_PRIORITY_SERVICES_CONTENT', 35);
+define('FOTO_PRIORITY_HOW_IT_WORKS', 40);
+define('FOTO_PRIORITY_BEFORE_AFTER_CONTENT', 45);
+define('FOTO_PRIORITY_BEFORE_AFTER_IMAGES', 50);
+define('FOTO_PRIORITY_GALLERY_SECTION', 55);
+define('FOTO_PRIORITY_GALLERY_IMAGES', 60);
+define('FOTO_PRIORITY_PRICING_CONTENT', 65);
+define('FOTO_PRIORITY_PRICING_SERVICES', 70);
+define('FOTO_PRIORITY_PRICING_BOTTOM', 75);
+define('FOTO_PRIORITY_TESTIMONIALS_CONTENT', 80);
+define('FOTO_PRIORITY_CTA_CONTENT', 85);
+define('FOTO_PRIORITY_CONTACT_CONTENT', 90);
+define('FOTO_PRIORITY_CONTACT_FORM', 95);
+define('FOTO_PRIORITY_EMAIL_SETTINGS', 100);
+define('FOTO_PRIORITY_COLOR_SCHEME', 105);
+define('FOTO_PRIORITY_LAYOUT_OPTIONS', 110);
+define('FOTO_PRIORITY_MENU_SETTINGS', 115);
+define('FOTO_PRIORITY_HOMEPAGE_SETTINGS', 120);
+define('FOTO_PRIORITY_CUSTOM_CSS', 125);
+
 function foto_services_reorganized_customizer($wp_customize) {
     
     // ========================================
@@ -16,7 +45,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     // ========================================
     $wp_customize->add_section('contact_info', array(
         'title' => 'Contact Information',
-        'priority' => 10,
+        'priority' => FOTO_PRIORITY_CONTACT_INFO,
         'description' => 'Thông tin liên hệ cơ bản của website',
     ));
 
@@ -55,7 +84,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     // ========================================
     $wp_customize->add_section('header_general_buttons', array(
         'title' => 'Header & General Buttons',
-        'priority' => 15,
+        'priority' => FOTO_PRIORITY_HEADER_BUTTONS,
         'description' => 'Cài đặt header và các nút bấm chung',
     ));
 
@@ -74,7 +103,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     // ========================================
     $wp_customize->add_section('hero_section', array(
         'title' => 'Hero Section',
-        'priority' => 20,
+        'priority' => FOTO_PRIORITY_HERO_SECTION,
         'description' => 'Cài đặt nội dung và hình nền cho phần hero',
     ));
 
@@ -199,7 +228,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     // ========================================
     $wp_customize->add_section('stats_section', array(
         'title' => 'Statistics Section',
-        'priority' => 25,
+        'priority' => FOTO_PRIORITY_STATS_SECTION,
         'description' => 'Cài đặt phần thống kê số liệu',
     ));
 
@@ -237,7 +266,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     // ========================================
     $wp_customize->add_section('company_description', array(
         'title' => 'Company Description',
-        'priority' => 30,
+        'priority' => FOTO_PRIORITY_COMPANY_DESCRIPTION,
         'description' => 'Mô tả về công ty và dịch vụ',
     ));
 
@@ -272,7 +301,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('services_content', array(
         'title' => 'Services Content',
-        'priority' => 35,
+        'priority' => FOTO_PRIORITY_SERVICES_CONTENT,
         'description' => 'Nội dung và mô tả các dịch vụ',
     ));
 
@@ -383,7 +412,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('how_it_works_section', array(
         'title' => 'How It Works',
-        'priority' => 40,
+        'priority' => FOTO_PRIORITY_HOW_IT_WORKS,
         'description' => 'Quy trình làm việc đơn giản và rõ ràng',
     ));
 
@@ -488,11 +517,110 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     ));
 
     // ========================================
-    // 8. GALLERY IMAGES
+    // 8. BEFORE/AFTER SECTION
+    // ========================================
+    $wp_customize->add_section('beforeafter_content', array(
+        'title' => 'Before/After Section',
+        'priority' => FOTO_PRIORITY_BEFORE_AFTER_CONTENT,
+        'description' => 'Nội dung phần before/after',
+    ));
+
+    $wp_customize->add_setting('beforeafter_title', array(
+        'default' => 'Before / After',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('beforeafter_title', array(
+        'label' => 'Before/After Section Title',
+        'section' => 'beforeafter_content',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('beforeafter_subtitle', array(
+        'default' => 'Kéo thanh trượt để xem khác biệt.',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('beforeafter_subtitle', array(
+        'label' => 'Before/After Section Subtitle',
+        'section' => 'beforeafter_content',
+        'type' => 'textarea',
+    ));
+
+    // ========================================
+    // 9. BEFORE/AFTER IMAGES
+    // ========================================
+    $wp_customize->add_section('beforeafter_images', array(
+        'title' => 'Before/After Images',
+        'priority' => FOTO_PRIORITY_BEFORE_AFTER_IMAGES,
+        'description' => 'Hình ảnh before/after',
+    ));
+
+    // Before/After Image Sets
+    for ($i = 1; $i <= 2; $i++) {
+        $wp_customize->add_setting("beforeafter_before_{$i}", array(
+            'default' => '',
+            'sanitize_callback' => 'esc_url_raw',
+        ));
+        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "beforeafter_before_{$i}", array(
+            'label' => "Before/After Set {$i} - Before Image",
+            'section' => 'beforeafter_images',
+            'settings' => "beforeafter_before_{$i}",
+        )));
+
+        $wp_customize->add_setting("beforeafter_after_{$i}", array(
+            'default' => '',
+            'sanitize_callback' => 'esc_url_raw',
+        ));
+        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "beforeafter_after_{$i}", array(
+            'label' => "Before/After Set {$i} - After Image",
+            'section' => 'beforeafter_images',
+            'settings' => "beforeafter_after_{$i}",
+        )));
+    }
+
+    // ========================================
+    // 10. GALLERY SECTION
+    // ========================================
+    $wp_customize->add_section('gallery_section', array(
+        'title' => 'Gallery Section',
+        'priority' => FOTO_PRIORITY_GALLERY_SECTION,
+        'description' => 'Cài đặt phần gallery chính',
+    ));
+
+    $wp_customize->add_setting('gallery_title', array(
+        'default' => 'Gallery',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('gallery_title', array(
+        'label' => 'Gallery Section Title',
+        'section' => 'gallery_section',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('gallery_subtitle', array(
+        'default' => 'Một vài ảnh minh họa phong cách xử lý.',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('gallery_subtitle', array(
+        'label' => 'Gallery Section Subtitle',
+        'section' => 'gallery_section',
+        'type' => 'textarea',
+    ));
+
+    // Show/Hide Gallery Section
+    $wp_customize->add_setting('show_gallery_section', array(
+        'default' => true,
+        'sanitize_callback' => 'wp_validate_boolean',
+    ));
+    $wp_customize->add_control('show_gallery_section', array(
+        'label' => 'Show Gallery Section',
+        'section' => 'gallery_section',
+        'type' => 'checkbox',
+    ));
+
+    // ========================================
+    // 11. GALLERY IMAGES
     // ========================================
     $wp_customize->add_section('services_gallery_images', array(
         'title' => 'Gallery Images',
-        'priority' => 45,
+        'priority' => FOTO_PRIORITY_GALLERY_IMAGES,
         'description' => 'Hình ảnh minh họa cho các dịch vụ',
     ));
 
@@ -540,112 +668,14 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
         }
     }
 
-    // ========================================
-    // 9. GALLERY SECTION
-    // ========================================
-    $wp_customize->add_section('gallery_section', array(
-        'title' => 'Gallery Section',
-        'priority' => 50,
-        'description' => 'Cài đặt phần gallery chính',
-    ));
 
-    $wp_customize->add_setting('gallery_title', array(
-        'default' => 'Gallery',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('gallery_title', array(
-        'label' => 'Gallery Section Title',
-        'section' => 'gallery_section',
-        'type' => 'text',
-    ));
-    $wp_customize->add_setting('gallery_subtitle', array(
-        'default' => 'Một vài ảnh minh họa phong cách xử lý.',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('gallery_subtitle', array(
-        'label' => 'Gallery Section Subtitle',
-        'section' => 'gallery_section',
-        'type' => 'textarea',
-    ));
-
-    // Show/Hide Gallery Section
-    $wp_customize->add_setting('show_gallery_section', array(
-        'default' => true,
-        'sanitize_callback' => 'wp_validate_boolean',
-    ));
-    $wp_customize->add_control('show_gallery_section', array(
-        'label' => 'Show Gallery Section',
-        'section' => 'gallery_section',
-        'type' => 'checkbox',
-    ));
-
-
-    // ========================================
-    // 10. BEFORE/AFTER SECTION
-    // ========================================
-    $wp_customize->add_section('beforeafter_content', array(
-        'title' => 'Before/After Section',
-        'priority' => 55,
-        'description' => 'Nội dung phần before/after',
-    ));
-
-    $wp_customize->add_setting('beforeafter_title', array(
-        'default' => 'Before / After',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('beforeafter_title', array(
-        'label' => 'Before/After Section Title',
-        'section' => 'beforeafter_content',
-        'type' => 'text',
-    ));
-    $wp_customize->add_setting('beforeafter_subtitle', array(
-        'default' => 'Kéo thanh trượt để xem khác biệt.',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('beforeafter_subtitle', array(
-        'label' => 'Before/After Section Subtitle',
-        'section' => 'beforeafter_content',
-        'type' => 'textarea',
-    ));
-
-    // ========================================
-    // 11. BEFORE/AFTER IMAGES
-    // ========================================
-    $wp_customize->add_section('beforeafter_images', array(
-        'title' => 'Before/After Images',
-        'priority' => 60,
-        'description' => 'Hình ảnh before/after',
-    ));
-
-    // Before/After Image Sets
-    for ($i = 1; $i <= 2; $i++) {
-        $wp_customize->add_setting("beforeafter_before_{$i}", array(
-            'default' => '',
-            'sanitize_callback' => 'esc_url_raw',
-        ));
-        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "beforeafter_before_{$i}", array(
-            'label' => "Before/After Set {$i} - Before Image",
-            'section' => 'beforeafter_images',
-            'settings' => "beforeafter_before_{$i}",
-        )));
-
-        $wp_customize->add_setting("beforeafter_after_{$i}", array(
-            'default' => '',
-            'sanitize_callback' => 'esc_url_raw',
-        ));
-        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "beforeafter_after_{$i}", array(
-            'label' => "Before/After Set {$i} - After Image",
-            'section' => 'beforeafter_images',
-            'settings' => "beforeafter_after_{$i}",
-        )));
-    }
 
     // ========================================
     // 12. PRICING SECTION
     // ========================================
     $wp_customize->add_section('pricing_content', array(
         'title' => 'Pricing Section',
-        'priority' => 65,
+        'priority' => FOTO_PRIORITY_PRICING_CONTENT,
         'description' => 'Nội dung phần pricing',
     ));
 
@@ -673,7 +703,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('pricing_services', array(
         'title' => 'Pricing Services',
-        'priority' => 70,
+        'priority' => FOTO_PRIORITY_PRICING_SERVICES,
         'description' => 'Cài đặt các dịch vụ và giá',
     ));
 
@@ -756,7 +786,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('pricing_bottom', array(
         'title' => 'Pricing Bottom Section',
-        'priority' => 75,
+        'priority' => FOTO_PRIORITY_PRICING_BOTTOM,
         'description' => 'Phần cuối của pricing',
     ));
 
@@ -798,7 +828,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('testimonials_content', array(
         'title' => 'Testimonials Content',
-        'priority' => 80,
+        'priority' => FOTO_PRIORITY_TESTIMONIALS_CONTENT,
         'description' => 'Nội dung testimonials',
     ));
 
@@ -850,7 +880,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('cta_content', array(
         'title' => 'CTA Section',
-        'priority' => 85,
+        'priority' => FOTO_PRIORITY_CTA_CONTENT,
         'description' => 'Phần call-to-action',
     ));
 
@@ -887,7 +917,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('contact_content', array(
         'title' => 'Contact Section',
-        'priority' => 90,
+        'priority' => FOTO_PRIORITY_CONTACT_CONTENT,
         'description' => 'Nội dung phần contact',
     ));
 
@@ -915,7 +945,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('contact_form', array(
         'title' => 'Contact Form Content',
-        'priority' => 95,
+        'priority' => FOTO_PRIORITY_CONTACT_FORM,
         'description' => 'Nội dung form liên hệ',
     ));
 
@@ -947,7 +977,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('email_settings', array(
         'title' => 'Email Settings',
-        'priority' => 100,
+        'priority' => FOTO_PRIORITY_EMAIL_SETTINGS,
         'description' => 'Cài đặt email',
     ));
 
@@ -987,7 +1017,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('color_scheme', array(
         'title' => 'Color Scheme',
-        'priority' => 105,
+        'priority' => FOTO_PRIORITY_COLOR_SCHEME,
         'description' => 'Bảng màu chủ đạo',
     ));
 
@@ -1014,7 +1044,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     $wp_customize->add_section('layout_options', array(
         'title' => 'Layout Options',
-        'priority' => 110,
+        'priority' => FOTO_PRIORITY_LAYOUT_OPTIONS,
         'description' => 'Tùy chọn bố cục',
     ));
 
@@ -1058,11 +1088,13 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     ));
 
     // ========================================
-    // 22. MENU
+    // 22. MENU (HIDDEN)
     // ========================================
+    // Menu section is hidden - uncomment below to show it
+    /*
     $wp_customize->add_section('menu_settings', array(
         'title' => 'Menu',
-        'priority' => 115,
+        'priority' => FOTO_PRIORITY_MENU_SETTINGS,
         'description' => 'Cài đặt menu navigation',
     ));
 
@@ -1081,13 +1113,16 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
             'bold' => 'Bold',
         ),
     ));
+    */
 
     // ========================================
-    // 23. CÀI ĐẶT TRANG CHỦ
+    // 23. CÀI ĐẶT TRANG CHỦ (HIDDEN)
     // ========================================
+    // Homepage settings section is hidden - uncomment below to show it
+    /*
     $wp_customize->add_section('homepage_settings', array(
         'title' => 'Cài đặt Trang chủ',
-        'priority' => 120,
+        'priority' => FOTO_PRIORITY_HOMEPAGE_SETTINGS,
         'description' => 'Cài đặt tổng quan cho trang chủ',
     ));
 
@@ -1105,13 +1140,16 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
             'extended' => 'Extended Layout',
         ),
     ));
+    */
 
     // ========================================
-    // 24. CSS BỔ SUNG
+    // 24. CSS BỔ SUNG (HIDDEN)
     // ========================================
+    // Custom CSS section is hidden - uncomment below to show it
+    /*
     $wp_customize->add_section('custom_css', array(
         'title' => 'CSS bổ sung',
-        'priority' => 125,
+        'priority' => FOTO_PRIORITY_CUSTOM_CSS,
         'description' => 'Thêm CSS tùy chỉnh',
     ));
 
@@ -1125,4 +1163,5 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
         'type' => 'textarea',
         'description' => 'Add your custom CSS code here',
     ));
+    */
 }
