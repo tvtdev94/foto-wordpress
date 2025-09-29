@@ -307,6 +307,17 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
         'type' => 'textarea',
     ));
 
+    $wp_customize->add_setting('company_bold_keywords', array(
+        'default' => 'world-class post-production,100% licensed software and,macOS workstations,AI technology',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('company_bold_keywords', array(
+        'label' => 'Bold Keywords',
+        'section' => 'company_description',
+        'type' => 'text',
+        'description' => 'Keywords to make bold, separated by commas',
+    ));
+
     // ========================================
     // 6. SERVICES CONTENT
     // ========================================

@@ -17,6 +17,9 @@ We proudly use 100% licensed software and work exclusively on macOS workstations
 By combining the power of AI technology with the artistry of our experienced editors, we provide the best performance-to-price ratio in the market. Every image, video, staging, or floor plan is refined to help your listings and products stand out from the competition.
 
 Fast turnaround, professional QC, and dedicated support make Foto Services the trusted partner for agents, studios, and brands worldwide.');
+
+// Get bold keywords from customizer (comma-separated)
+$bold_keywords = get_theme_mod('company_bold_keywords', 'world-class post-production,100% licensed software and,macOS workstations,AI technology');
 ?>
 
 <section class="company-description-section py-20 bg-slate-50">
@@ -32,7 +35,21 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
                     
                     <?php if ($company_description): ?>
                         <div class="text-lg text-slate-700 leading-relaxed space-y-4">
-                            <?php echo wp_kses_post(wpautop($company_description)); ?>
+                            <?php
+                            $formatted_description = $company_description;
+
+                            // Apply bold formatting to keywords
+                            if ($bold_keywords) {
+                                $keywords_array = array_map('trim', explode(',', $bold_keywords));
+                                foreach ($keywords_array as $keyword) {
+                                    if (!empty($keyword)) {
+                                        $formatted_description = str_replace($keyword, '<strong>' . $keyword . '</strong>', $formatted_description);
+                                    }
+                                }
+                            }
+
+                            echo wp_kses_post(wpautop($formatted_description));
+                            ?>
                         </div>
                     <?php endif; ?>
                 </div>

@@ -23,14 +23,14 @@ function foto_services_setup() {
 add_action('after_setup_theme', 'foto_services_setup');
 
 function foto_services_scripts() {
-    // Enqueue Tailwind CSS
-    wp_enqueue_script('tailwindcss', 'https://cdn.tailwindcss.com', array(), null, false);
-
     // Enqueue Google Fonts
     wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap', array(), null);
 
+    // Enqueue Tailwind CSS (local)
+    wp_enqueue_style('tailwindcss', get_template_directory_uri() . '/assets/css/tailwind.css', array(), wp_get_theme()->get('Version'));
+
     // Enqueue theme styles
-    wp_enqueue_style('foto-services-style', get_stylesheet_uri(), array(), wp_get_theme()->get('Version'));
+    wp_enqueue_style('foto-services-style', get_stylesheet_uri(), array('tailwindcss'), wp_get_theme()->get('Version'));
 
     // Enqueue custom JS
     wp_enqueue_script('foto-services-script', get_template_directory_uri() . '/js/script.js', array(), time(), true);
