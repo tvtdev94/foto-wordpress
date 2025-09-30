@@ -19,8 +19,11 @@ function foto_services_setup() {
     register_nav_menus(array(
         'primary' => __('Primary Menu', 'foto-services'),
     ));
+
 }
 add_action('after_setup_theme', 'foto_services_setup');
+
+// Note: Widget disabling is handled by mu-plugin in wp-content/mu-plugins/disable-widgets.php
 
 function foto_services_scripts() {
     // Enqueue Google Fonts

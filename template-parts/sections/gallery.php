@@ -11,7 +11,7 @@
         // Default images as fallback
         $default_images = array(
             'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=800&auto=format&fit=crop',
-            'https://images.unsplash.com/photo-1505692794403-34cb4b7c7263?q=80&w=800&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop',
             'https://images.unsplash.com/photo-1504626835342-6b01071d182e?q=80&w=800&auto=format&fit=crop',
             'https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=800&auto=format&fit=crop',
             'https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=800&auto=format&fit=crop',
@@ -95,10 +95,10 @@
                          alt="<?php echo esc_attr($service['title']); ?>"
                          class="w-full h-48 object-cover rounded-xl shadow-smooth transition-all duration-300 group-hover:scale-105">
 
-                    <div class="absolute inset-0 bg-black bg-opacity-50 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:bg-opacity-40">
+                    <div class="absolute inset-0 rounded-xl flex items-center justify-center transition-all duration-300" style="background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.5), rgba(0,0,0,0.3));">
                         <div class="text-center text-white px-4">
-                            <h3 class="text-lg font-bold mb-2"><?php echo esc_html($service['title']); ?></h3>
-                            <p class="text-xs opacity-90 leading-relaxed hidden md:block"><?php echo esc_html($service['description']); ?></p>
+                            <h3 class="text-lg font-bold mb-2" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);"><?php echo esc_html($service['title']); ?></h3>
+                            <p class="text-xs leading-relaxed hidden md:block" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.7);"><?php echo esc_html($service['description']); ?></p>
                         </div>
                     </div>
 
