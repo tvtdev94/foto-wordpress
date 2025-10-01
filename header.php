@@ -9,9 +9,9 @@
 
 <!-- Top Bar -->
 <div class="bg-slate-900 text-white text-sm">
-    <div class="container mx-auto px-4 py-2 flex items-center justify-between">
-        <span>📸 Foto Services — Real Estate Photo Editing</span>
-        <div class="flex items-center gap-4 opacity-90">
+    <div class="container mx-auto px-4 py-2 flex items-center justify-between top-bar-container">
+        <span class="top-bar-title">📸 Foto Services — Real Estate Photo Editing</span>
+        <div class="flex items-center gap-4 opacity-90 top-bar-contacts">
             <a href="#contact" class="hover:underline">✉️ <?php echo esc_html(get_theme_mod('contact_email', 'hello@fotoservices.com')); ?></a>
             <a href="#contact" class="hover:underline inline-flex items-center gap-1">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="red" xmlns="http://www.w3.org/2000/svg">
@@ -41,7 +41,7 @@
             ?>
         </nav>
 
-        <a href="#contact" class="inline-flex items-center gap-2 rounded-2xl bg-indigo-600 text-white px-5 py-2.5 text-sm font-semibold hover:bg-indigo-700 shadow-smooth"><?php echo esc_html(get_theme_mod('header_button_text', 'Nhận báo giá')); ?></a>
+        <a href="#contact" class="inline-flex items-center gap-2 rounded-2xl bg-indigo-600 text-white px-5 py-2.5 text-sm font-semibold hover:bg-indigo-700 shadow-smooth header-cta-button"><?php echo esc_html(get_theme_mod('header_button_text', 'Nhận báo giá')); ?></a>
     </div>
 </header>
 

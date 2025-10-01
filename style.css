@@ -81,3 +81,42 @@ html, body {
     content: "✔️ ";
     color: #059669; /* green for checkmark */
 }
+
+/* Header Responsive Styles */
+@media (max-width: 767px) {
+    /* Top Bar - Stack on mobile */
+    .top-bar-container {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .top-bar-contacts {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    .top-bar-contacts a {
+        font-size: 0.75rem;
+    }
+
+    /* Navbar - Hide CTA button on very small screens */
+    .header-cta-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Tablet adjustments */
+    .top-bar-container {
+        padding: 0.5rem 1rem;
+    }
+
+    .header-cta-button {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.875rem;
+    }
+}
