@@ -133,21 +133,53 @@ function foto_beforeafter_content_customizer($wp_customize) {
         )
     );
 
+    // Create individual sections for each service
     foreach ($services as $num => $service) {
+        $section_id = "beforeafter_service_{$num}";
+
+        // Create section for this service
+        $wp_customize->add_section($section_id, array(
+            'title' => $service['title'],
+            'panel' => 'beforeafter_images',
+            'priority' => $num * 10,
+            'description' => "Cài đặt hình before/after cho {$service['title']}",
+        ));
+
         // Service Title
         $wp_customize->add_setting("ba_service{$num}_title", array(
             'default' => $service['title'],
             'sanitize_callback' => 'sanitize_text_field',
         ));
         $wp_customize->add_control("ba_service{$num}_title", array(
-            'label' => "Service {$num} - Title",
-            'section' => 'beforeafter_images',
+            'label' => 'Service Title',
+            'section' => $section_id,
             'type' => 'text',
+            'priority' => 1,
         ));
 
-        // Number of slides for this service (up to 10)
+        // Number of slides selector
+        $default_slide_count = count($service['slides']);
+        $slide_choices = array();
+        for ($s = 1; $s <= 30; $s++) {
+            $slide_choices[$s] = $s . ($s == 1 ? ' Slide' : ' Slides');
+        }
+
+        $wp_customize->add_setting("ba_service{$num}_slide_count", array(
+            'default' => $default_slide_count,
+            'sanitize_callback' => 'absint',
+        ));
+        $wp_customize->add_control("ba_service{$num}_slide_count", array(
+            'label' => 'Number of Slides',
+            'section' => $section_id,
+            'type' => 'select',
+            'priority' => 2,
+            'choices' => $slide_choices,
+            'description' => 'Chọn số lượng slide before/after cho service này (tối đa 30)',
+        ));
+
+        // Number of slides for this service (up to 30)
         $slide_count = count($service['slides']);
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 30; $i++) {
             $default_before = isset($service['slides'][$i-1]['before']) ? $service['slides'][$i-1]['before'] : '';
             $default_after = isset($service['slides'][$i-1]['after']) ? $service['slides'][$i-1]['after'] : '';
 
@@ -157,8 +189,9 @@ function foto_beforeafter_content_customizer($wp_customize) {
                 'sanitize_callback' => 'esc_url_raw',
             ));
             $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "ba_service{$num}_slide{$i}_before", array(
-                'label' => "Service {$num} - Slide {$i} Before",
-                'section' => 'beforeafter_images',
+                'label' => "Slide {$i} - Before",
+                'section' => $section_id,
+                'priority' => $i * 10 + 5,
             )));
 
             // After Image
@@ -167,10 +200,58 @@ function foto_beforeafter_content_customizer($wp_customize) {
                 'sanitize_callback' => 'esc_url_raw',
             ));
             $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "ba_service{$num}_slide{$i}_after", array(
-                'label' => "Service {$num} - Slide {$i} After",
-                'section' => 'beforeafter_images',
+                'label' => "Slide {$i} - After",
+                'section' => $section_id,
+                'priority' => $i * 10 + 6,
             )));
         }
     }
+
 }
 add_action('customize_register', 'foto_beforeafter_content_customizer');
+
+// Enqueue customizer JavaScript for show/hide slides
+function foto_beforeafter_customizer_js() {
+    ?>
+    <script type="text/javascript">
+    (function($) {
+        wp.customize.bind('ready', function() {
+            // Handle all 11 services
+            for (let serviceNum = 1; serviceNum <= 11; serviceNum++) {
+                const settingId = 'ba_service' + serviceNum + '_slide_count';
+
+                // Function to toggle slide visibility
+                function toggleSlides(count) {
+                    for (let i = 1; i <= 30; i++) {
+                        const beforeControl = wp.customize.control('ba_service' + serviceNum + '_slide' + i + '_before');
+                        const afterControl = wp.customize.control('ba_service' + serviceNum + '_slide' + i + '_after');
+
+                        if (beforeControl && afterControl) {
+                            if (i <= count) {
+                                beforeControl.container.show();
+                                afterControl.container.show();
+                            } else {
+                                beforeControl.container.hide();
+                                afterControl.container.hide();
+                            }
+                        }
+                    }
+                }
+
+                // Initial state
+                const initialCount = wp.customize(settingId)();
+                toggleSlides(initialCount);
+
+                // Listen for changes
+                wp.customize(settingId, function(setting) {
+                    setting.bind(function(newValue) {
+                        toggleSlides(parseInt(newValue));
+                    });
+                });
+            }
+        });
+    })(jQuery);
+    </script>
+    <?php
+}
+add_action('customize_controls_print_footer_scripts', 'foto_beforeafter_customizer_js');

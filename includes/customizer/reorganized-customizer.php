@@ -569,7 +569,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     // ========================================
     // 9. BEFORE/AFTER IMAGES (11 SERVICES)
     // ========================================
-    $wp_customize->add_section('beforeafter_images', array(
+    $wp_customize->add_panel('beforeafter_images', array(
         'title' => 'Before/After Images',
         'priority' => FOTO_PRIORITY_BEFORE_AFTER_IMAGES,
         'description' => 'Hình ảnh before/after cho 11 services',

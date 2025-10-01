@@ -247,7 +247,12 @@ window.baServicesData = <?php
 
     echo json_encode(array_map(function($i) use ($default_slides) {
         $slides = array();
-        for ($j = 1; $j <= 10; $j++) {
+        // Get the number of slides set for this service
+        $default_slide_count = isset($default_slides[$i]) ? count($default_slides[$i]) : 3;
+        $slide_count = get_theme_mod("ba_service{$i}_slide_count", $default_slide_count);
+
+        // Only get the number of slides specified
+        for ($j = 1; $j <= $slide_count; $j++) {
             $defaults = isset($default_slides[$i][$j-1]) ? $default_slides[$i][$j-1] : array('before' => '', 'after' => '');
             $before = get_theme_mod("ba_service{$i}_slide{$j}_before", $defaults['before']);
             $after = get_theme_mod("ba_service{$i}_slide{$j}_after", $defaults['after']);
