@@ -10,6 +10,68 @@ function moveBA(input){
     dot.style.left = pct + '%';
 }
 
+// Initialize Before/After sliders with mouse/touch drag
+document.addEventListener('DOMContentLoaded', function() {
+    const baWraps = document.querySelectorAll('.ba-wrap');
+
+    baWraps.forEach(wrap => {
+        const slider = wrap.querySelector('input[type="range"]');
+        if (!slider) return;
+
+        // Mouse drag
+        wrap.addEventListener('mousedown', function(e) {
+            if (e.target.tagName === 'INPUT') return;
+
+            const rect = wrap.getBoundingClientRect();
+            const updatePosition = (clientX) => {
+                const x = clientX - rect.left;
+                const pct = Math.max(0, Math.min(100, (x / rect.width) * 100));
+                slider.value = pct;
+                moveBA(slider);
+            };
+
+            updatePosition(e.clientX);
+
+            const onMouseMove = (e) => updatePosition(e.clientX);
+            const onMouseUp = () => {
+                document.removeEventListener('mousemove', onMouseMove);
+                document.removeEventListener('mouseup', onMouseUp);
+            };
+
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', onMouseUp);
+        });
+
+        // Touch drag
+        wrap.addEventListener('touchstart', function(e) {
+            if (e.target.tagName === 'INPUT') return;
+
+            const rect = wrap.getBoundingClientRect();
+            const updatePosition = (clientX) => {
+                const x = clientX - rect.left;
+                const pct = Math.max(0, Math.min(100, (x / rect.width) * 100));
+                slider.value = pct;
+                moveBA(slider);
+            };
+
+            const touch = e.touches[0];
+            updatePosition(touch.clientX);
+
+            const onTouchMove = (e) => {
+                const touch = e.touches[0];
+                updatePosition(touch.clientX);
+            };
+            const onTouchEnd = () => {
+                document.removeEventListener('touchmove', onTouchMove);
+                document.removeEventListener('touchend', onTouchEnd);
+            };
+
+            document.addEventListener('touchmove', onTouchMove);
+            document.addEventListener('touchend', onTouchEnd);
+        });
+    });
+});
+
 // Set current year in footer
 document.addEventListener('DOMContentLoaded', function() {
     const yearElement = document.getElementById('year');
@@ -303,18 +365,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const baModalTitle = document.getElementById('ba-modal-title');
     const baModalContent = document.getElementById('ba-modal-content');
     const baModalClose = document.getElementById('ba-modal-close');
-    const baItems = document.querySelectorAll('.service-ba-item');
+    const baTitles = document.querySelectorAll('.service-ba-title');
 
-    // Open modal when clicking service BA item
-    baItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            // Don't trigger if clicking on the slider
-            if (e.target.tagName === 'INPUT') {
-                return;
-            }
+    // Open modal when clicking service title only
+    baTitles.forEach(title => {
+        title.addEventListener('click', function(e) {
+            e.stopPropagation();
 
-            const serviceId = parseInt(this.dataset.serviceId);
-            const serviceName = this.dataset.serviceName;
+            const container = this.parentElement;
+            const serviceId = parseInt(container.dataset.serviceId);
+            const serviceName = container.dataset.serviceName;
 
             // Set modal title
             baModalTitle.textContent = serviceName;
@@ -330,7 +390,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (slides.length > 0) {
                 slides.forEach(slide => {
                     const baWrap = document.createElement('div');
-                    baWrap.className = 'ba-wrap aspect-[16/10] shadow-smooth rounded-lg overflow-hidden';
+                    baWrap.className = 'ba-wrap aspect-[16/10] shadow-smooth rounded-lg overflow-hidden relative';
                     baWrap.innerHTML = `
                         <img src="${slide.before}" alt="Before" />
                         <div class="ba-after" style="width:50%">
@@ -338,10 +398,67 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                         <div class="ba-handle left-1/2"></div>
                         <div class="ba-dot">↔</div>
-                        <input type="range" min="0" max="100" value="50" class="absolute bottom-3 left-1/2 -translate-x-1/2 w-4/5" oninput="moveBA(this)"/>
+                        <input type="range" min="0" max="100" value="50" style="display:none;" />
                     `;
                     baModalContent.appendChild(baWrap);
                 });
+
+                // Re-initialize drag for modal sliders
+                setTimeout(() => {
+                    const modalWraps = baModalContent.querySelectorAll('.ba-wrap');
+                    modalWraps.forEach(wrap => {
+                        const slider = wrap.querySelector('input[type="range"]');
+                        if (!slider) return;
+
+                        // Mouse drag
+                        wrap.addEventListener('mousedown', function(e) {
+                            const rect = wrap.getBoundingClientRect();
+                            const updatePosition = (clientX) => {
+                                const x = clientX - rect.left;
+                                const pct = Math.max(0, Math.min(100, (x / rect.width) * 100));
+                                slider.value = pct;
+                                moveBA(slider);
+                            };
+
+                            updatePosition(e.clientX);
+
+                            const onMouseMove = (e) => updatePosition(e.clientX);
+                            const onMouseUp = () => {
+                                document.removeEventListener('mousemove', onMouseMove);
+                                document.removeEventListener('mouseup', onMouseUp);
+                            };
+
+                            document.addEventListener('mousemove', onMouseMove);
+                            document.addEventListener('mouseup', onMouseUp);
+                        });
+
+                        // Touch drag
+                        wrap.addEventListener('touchstart', function(e) {
+                            const rect = wrap.getBoundingClientRect();
+                            const updatePosition = (clientX) => {
+                                const x = clientX - rect.left;
+                                const pct = Math.max(0, Math.min(100, (x / rect.width) * 100));
+                                slider.value = pct;
+                                moveBA(slider);
+                            };
+
+                            const touch = e.touches[0];
+                            updatePosition(touch.clientX);
+
+                            const onTouchMove = (e) => {
+                                const touch = e.touches[0];
+                                updatePosition(touch.clientX);
+                            };
+                            const onTouchEnd = () => {
+                                document.removeEventListener('touchmove', onTouchMove);
+                                document.removeEventListener('touchend', onTouchEnd);
+                            };
+
+                            document.addEventListener('touchmove', onTouchMove);
+                            document.addEventListener('touchend', onTouchEnd);
+                        });
+                    });
+                }, 100);
             } else {
                 baModalContent.innerHTML = '<div class="col-span-2 text-center py-8">No slides available.</div>';
             }

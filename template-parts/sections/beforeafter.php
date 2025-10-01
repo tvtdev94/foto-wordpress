@@ -73,7 +73,7 @@
                 $before = get_theme_mod("ba_service{$i}_slide1_before", $default['before']);
                 $after = get_theme_mod("ba_service{$i}_slide1_after", $default['after']);
             ?>
-                <div class="service-ba-item cursor-pointer" data-service-id="<?php echo $i; ?>" data-service-name="<?php echo esc_attr($title); ?>">
+                <div data-service-id="<?php echo $i; ?>" data-service-name="<?php echo esc_attr($title); ?>">
                     <div class="ba-wrap aspect-[4/3] shadow-smooth rounded-lg overflow-hidden">
                         <img src="<?php echo esc_url($before); ?>" alt="Before" />
                         <div class="ba-after" style="width:50%">
@@ -83,7 +83,7 @@
                         <div class="ba-dot">↔</div>
                         <input type="range" min="0" max="100" value="50" class="absolute bottom-2 left-1/2 -translate-x-1/2 w-4/5" oninput="moveBA(this)"/>
                     </div>
-                    <div class="mt-2 text-center font-semibold text-sm"><?php echo esc_html($title); ?></div>
+                    <div class="mt-2 text-center font-semibold text-sm cursor-pointer hover:text-blue-600 transition-colors service-ba-title"><?php echo esc_html($title); ?></div>
                 </div>
             <?php
             endfor;
