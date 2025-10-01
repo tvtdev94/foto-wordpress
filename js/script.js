@@ -294,3 +294,85 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Before/After Modal Handler
+document.addEventListener('DOMContentLoaded', function() {
+    const baModal = document.getElementById('ba-modal');
+    if (!baModal) return;
+
+    const baModalTitle = document.getElementById('ba-modal-title');
+    const baModalContent = document.getElementById('ba-modal-content');
+    const baModalClose = document.getElementById('ba-modal-close');
+    const baItems = document.querySelectorAll('.service-ba-item');
+
+    // Open modal when clicking service BA item
+    baItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            // Don't trigger if clicking on the slider
+            if (e.target.tagName === 'INPUT') {
+                return;
+            }
+
+            const serviceId = parseInt(this.dataset.serviceId);
+            const serviceName = this.dataset.serviceName;
+
+            // Set modal title
+            baModalTitle.textContent = serviceName;
+
+            // Get slides from window.baServicesData
+            const slides = window.baServicesData && window.baServicesData[serviceId - 1]
+                ? window.baServicesData[serviceId - 1]
+                : [];
+
+            // Populate modal content
+            baModalContent.innerHTML = '';
+
+            if (slides.length > 0) {
+                slides.forEach(slide => {
+                    const baWrap = document.createElement('div');
+                    baWrap.className = 'ba-wrap aspect-[16/10] shadow-smooth rounded-lg overflow-hidden';
+                    baWrap.innerHTML = `
+                        <img src="${slide.before}" alt="Before" />
+                        <div class="ba-after" style="width:50%">
+                            <img src="${slide.after}" alt="After" />
+                        </div>
+                        <div class="ba-handle left-1/2"></div>
+                        <div class="ba-dot">↔</div>
+                        <input type="range" min="0" max="100" value="50" class="absolute bottom-3 left-1/2 -translate-x-1/2 w-4/5" oninput="moveBA(this)"/>
+                    `;
+                    baModalContent.appendChild(baWrap);
+                });
+            } else {
+                baModalContent.innerHTML = '<div class="col-span-2 text-center py-8">No slides available.</div>';
+            }
+
+            // Show modal
+            baModal.classList.remove('hidden');
+            baModal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // Close modal
+    function closeBaModal() {
+        baModal.classList.add('hidden');
+        baModal.classList.remove('flex');
+        document.body.style.overflow = 'auto';
+    }
+
+    baModalClose.addEventListener('click', closeBaModal);
+
+    // Close when clicking outside
+    baModal.addEventListener('click', function(e) {
+        if (e.target === baModal) {
+            closeBaModal();
+        }
+    });
+
+    // Close with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !baModal.classList.contains('hidden')) {
+            closeBaModal();
+        }
+    });
+});

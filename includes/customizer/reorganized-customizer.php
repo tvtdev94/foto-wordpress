@@ -557,7 +557,7 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
         'type' => 'text',
     ));
     $wp_customize->add_setting('beforeafter_subtitle', array(
-        'default' => 'Kéo thanh trượt để xem khác biệt.',
+        'default' => 'Click vào từng service để xem thêm.',
         'sanitize_callback' => 'sanitize_text_field',
     ));
     $wp_customize->add_control('beforeafter_subtitle', array(
@@ -567,36 +567,16 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     ));
 
     // ========================================
-    // 9. BEFORE/AFTER IMAGES
+    // 9. BEFORE/AFTER IMAGES (11 SERVICES)
     // ========================================
     $wp_customize->add_section('beforeafter_images', array(
         'title' => 'Before/After Images',
         'priority' => FOTO_PRIORITY_BEFORE_AFTER_IMAGES,
-        'description' => 'Hình ảnh before/after',
+        'description' => 'Hình ảnh before/after cho 11 services',
     ));
 
-    // Before/After Image Sets
-    for ($i = 1; $i <= 2; $i++) {
-        $wp_customize->add_setting("beforeafter_before_{$i}", array(
-            'default' => '',
-            'sanitize_callback' => 'esc_url_raw',
-        ));
-        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "beforeafter_before_{$i}", array(
-            'label' => "Before/After Set {$i} - Before Image",
-            'section' => 'beforeafter_images',
-            'settings' => "beforeafter_before_{$i}",
-        )));
-
-        $wp_customize->add_setting("beforeafter_after_{$i}", array(
-            'default' => '',
-            'sanitize_callback' => 'esc_url_raw',
-        ));
-        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "beforeafter_after_{$i}", array(
-            'label' => "Before/After Set {$i} - After Image",
-            'section' => 'beforeafter_images',
-            'settings' => "beforeafter_after_{$i}",
-        )));
-    }
+    require_once get_template_directory() . '/includes/customizer/beforeafter-content.php';
+    foto_beforeafter_content_customizer($wp_customize);
 
     // ========================================
     // 10. GALLERY SECTION
