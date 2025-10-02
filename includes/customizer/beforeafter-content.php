@@ -137,12 +137,12 @@ function foto_beforeafter_content_customizer($wp_customize) {
     foreach ($services as $num => $service) {
         $section_id = "beforeafter_service_{$num}";
 
-        // Create section for this service
+        // Create section for this service with dynamic title
         $wp_customize->add_section($section_id, array(
-            'title' => $service['title'],
+            'title' => get_theme_mod("ba_service{$num}_title", $service['title']),
             'panel' => 'beforeafter_images',
             'priority' => $num * 10,
-            'description' => "Cài đặt hình before/after cho {$service['title']}",
+            'description' => "Cài đặt hình before/after cho service này",
         ));
 
         // Service Title
@@ -242,7 +242,7 @@ function foto_beforeafter_customizer_js() {
                 const initialCount = wp.customize(settingId)();
                 toggleSlides(initialCount);
 
-                // Listen for changes
+                // Listen for slide count changes
                 wp.customize(settingId, function(setting) {
                     setting.bind(function(newValue) {
                         toggleSlides(parseInt(newValue));

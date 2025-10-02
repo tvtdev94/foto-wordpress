@@ -39,28 +39,63 @@
 
 <script>
 // Pass PHP data to JavaScript
-window.servicesThumbnails = {
-    <?php for ($i = 1; $i <= 11; $i++) : ?>
-    <?php echo $i - 1; ?>: [
-        <?php for ($j = 1; $j <= 6; $j++) : ?>
-        <?php
-        $thumb = get_theme_mod("service_gallery_thumb_{$i}_{$j}", '');
-        if (!$thumb) {
-            // Fallback thumbnails
-            $fallback_thumbs = array(
-                'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1486304873000-235643847519?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=400&auto=format&fit=crop'
-            );
-            $thumb = $fallback_thumbs[($j - 1) % 6];
-        }
-        ?>
-        '<?php echo esc_url($thumb); ?>'<?php echo ($j < 6) ? ',' : ''; ?>
-        <?php endfor; ?>
-    ]<?php echo ($i < 11) ? ',' : ''; ?>
+window.servicesGalleryData = {
+    <?php
+    // Default data
+    $default_titles = array(
+        'HDR/Flambient', 'Virtual Staging', 'Floor Plan & Site Plan', 'Sky/Twilight Replace',
+        'Reels/Shorts', 'Remove Objects', 'Day to Dusk', 'Grass Enhancement',
+        'Fire/Water Features', 'Color Correction', 'Perspective Correction'
+    );
+    $default_descriptions = array(
+        'Blending multiple exposures to create bright, detailed, and true-to-life images.',
+        'Transform empty spaces into beautifully styled rooms with digital furniture.',
+        'Accurate layouts that help buyers clearly understand the property structure.',
+        'Enhance photos with dramatic sky replacements and twilight effects.',
+        'Short-form video content optimized for social media marketing.',
+        'Clean removal of unwanted objects, keeping photos neat and professional.',
+        'Turn daytime shots into stunning twilight scenes with natural evening light.',
+        'Replace patchy grass with lush, vibrant green lawns.',
+        'Add realistic fire and water effects to enhance property features.',
+        'Professional color grading for consistent, appealing property photos.',
+        'Fix distorted lines and angles for professional architectural shots.'
+    );
+
+    for ($i = 1; $i <= 11; $i++) :
+        $title = get_theme_mod("gallery_service{$i}_title", $default_titles[$i-1]);
+        $description = get_theme_mod("gallery_service{$i}_description", $default_descriptions[$i-1]);
+        $image_count = get_theme_mod("gallery_service{$i}_image_count", 3);
+    ?>
+    <?php echo $i - 1; ?>: {
+        title: '<?php echo esc_js($title); ?>',
+        description: '<?php echo esc_js($description); ?>',
+        thumbnails: [
+            <?php for ($j = 1; $j <= $image_count; $j++) : ?>
+            <?php
+            $image = get_theme_mod("gallery_service{$i}_image{$j}", '');
+            if (!$image) {
+                // Fallback thumbnails
+                $fallback_thumbs = array(
+                    'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=400&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1486304873000-235643847519?q=80&w=400&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=400&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=400&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?q=80&w=400&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=400&auto=format&fit=crop'
+                );
+                $image = $fallback_thumbs[($j - 1) % 6];
+            }
+            ?>
+            '<?php echo esc_url($image); ?>'<?php echo ($j < $image_count) ? ',' : ''; ?>
+            <?php endfor; ?>
+        ]
+    }<?php echo ($i < 11) ? ',' : ''; ?>
     <?php endfor; ?>
 };
+
+// Keep old format for backward compatibility
+window.servicesThumbnails = {};
+for (let i = 0; i <= 10; i++) {
+    window.servicesThumbnails[i] = window.servicesGalleryData[i].thumbnails;
+}
 </script>

@@ -618,57 +618,16 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
     ));
 
     // ========================================
-    // 11. GALLERY IMAGES
+    // 11. GALLERY IMAGES (11 SERVICES)
     // ========================================
-    $wp_customize->add_section('services_gallery_images', array(
+    $wp_customize->add_panel('gallery_images', array(
         'title' => 'Gallery Images',
         'priority' => FOTO_PRIORITY_GALLERY_IMAGES,
-        'description' => 'Hình ảnh minh họa cho các dịch vụ',
+        'description' => 'Hình ảnh gallery cho 11 services',
     ));
 
-    $service_names = array(
-        'Single', 'HDR', 'Ambient Flash', '2D Floor Plan', '3D Floor Plan',
-        'Virtual Staging', 'Clear the Room', 'Clear the Room + VS',
-        'Item Removal', 'Natural Twilight', 'Virtual Twilight'
-    );
-
-    for ($i = 1; $i <= 11; $i++) {
-        $service_name = $service_names[$i-1];
-
-        // Visible checkbox for each service
-        $wp_customize->add_setting("service_gallery_visible_{$i}", array(
-            'default' => true,
-            'sanitize_callback' => 'wp_validate_boolean',
-        ));
-        $wp_customize->add_control("service_gallery_visible_{$i}", array(
-            'label' => "Show {$service_name}",
-            'section' => 'services_gallery_images',
-            'type' => 'checkbox',
-        ));
-
-        $wp_customize->add_setting("service_gallery_image_{$i}", array(
-            'default' => '',
-            'sanitize_callback' => 'esc_url_raw',
-        ));
-        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "service_gallery_image_{$i}", array(
-            'label' => "{$service_name} - Main Image",
-            'section' => 'services_gallery_images',
-            'settings' => "service_gallery_image_{$i}",
-        )));
-
-        // Add 6 thumbnail images for each service
-        for ($j = 1; $j <= 6; $j++) {
-            $wp_customize->add_setting("service_gallery_thumb_{$i}_{$j}", array(
-                'default' => '',
-                'sanitize_callback' => 'esc_url_raw',
-            ));
-            $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "service_gallery_thumb_{$i}_{$j}", array(
-                'label' => "{$service_name} - Thumbnail {$j}",
-                'section' => 'services_gallery_images',
-                'settings' => "service_gallery_thumb_{$i}_{$j}",
-            )));
-        }
-    }
+    require_once get_template_directory() . '/includes/customizer/gallery-images-content.php';
+    foto_gallery_images_customizer($wp_customize);
 
 
 

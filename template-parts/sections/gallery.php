@@ -23,74 +23,41 @@
             'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop'
         );
 
-        $services_gallery = array(
-            array(
-                'title' => 'Single',
-                'description' => 'Perfect for quick edits with natural lighting adjustments, giving your photos a clean and polished look.',
-                'image' => get_theme_mod('service_gallery_image_1', $default_images[0])
-            ),
-            array(
-                'title' => 'HDR',
-                'description' => 'Blending multiple exposures to create bright, detailed, and true-to-life images that impress every viewer.',
-                'image' => get_theme_mod('service_gallery_image_2', $default_images[1])
-            ),
-            array(
-                'title' => 'Ambient Flash',
-                'description' => 'Combining ambient light and flash shots for balanced lighting and natural colors in every room.',
-                'image' => get_theme_mod('service_gallery_image_3', $default_images[2])
-            ),
-            array(
-                'title' => '2D Floor Plan',
-                'description' => 'Simple and accurate layouts that help buyers clearly understand the property\'s structure.',
-                'image' => get_theme_mod('service_gallery_image_4', $default_images[3])
-            ),
-            array(
-                'title' => '3D Floor Plan',
-                'description' => 'Realistic 3D layouts that bring the property to life with depth and perspective.',
-                'image' => get_theme_mod('service_gallery_image_5', $default_images[4])
-            ),
-            array(
-                'title' => 'Virtual Staging',
-                'description' => 'Instantly transform empty spaces into beautifully styled rooms with digital furniture and decor.',
-                'image' => get_theme_mod('service_gallery_image_6', $default_images[5])
-            ),
-            array(
-                'title' => 'Clear the Room',
-                'description' => 'Showcase the true size of a space by removing all furniture and clutter.',
-                'image' => get_theme_mod('service_gallery_image_7', $default_images[6])
-            ),
-            array(
-                'title' => 'Clear the Room + VS',
-                'description' => 'Start with a clean, empty room and then add stylish virtual staging for maximum impact.',
-                'image' => get_theme_mod('service_gallery_image_8', $default_images[7])
-            ),
-            array(
-                'title' => 'Item Removal',
-                'description' => 'Say goodbye to unwanted objects or distractions, keeping your photos neat and professional.',
-                'image' => get_theme_mod('service_gallery_image_9', $default_images[8])
-            ),
-            array(
-                'title' => 'Natural Twilight',
-                'description' => 'Turn daytime shots into stunning twilight scenes with soft, natural evening light.',
-                'image' => get_theme_mod('service_gallery_image_10', $default_images[9])
-            ),
-            array(
-                'title' => 'Virtual Twilight',
-                'description' => 'Enhance exterior photos with a dramatic dusk effect, making every property stand out.',
-                'image' => get_theme_mod('service_gallery_image_11', $default_images[10])
-            )
+        // Default titles and descriptions
+        $default_data = array(
+            array('title' => 'HDR/Flambient', 'description' => 'Blending multiple exposures to create bright, detailed, and true-to-life images.'),
+            array('title' => 'Virtual Staging', 'description' => 'Transform empty spaces into beautifully styled rooms with digital furniture.'),
+            array('title' => 'Floor Plan & Site Plan', 'description' => 'Accurate layouts that help buyers clearly understand the property structure.'),
+            array('title' => 'Sky/Twilight Replace', 'description' => 'Enhance photos with dramatic sky replacements and twilight effects.'),
+            array('title' => 'Reels/Shorts', 'description' => 'Short-form video content optimized for social media marketing.'),
+            array('title' => 'Remove Objects', 'description' => 'Clean removal of unwanted objects, keeping photos neat and professional.'),
+            array('title' => 'Day to Dusk', 'description' => 'Turn daytime shots into stunning twilight scenes with natural evening light.'),
+            array('title' => 'Grass Enhancement', 'description' => 'Replace patchy grass with lush, vibrant green lawns.'),
+            array('title' => 'Fire/Water Features', 'description' => 'Add realistic fire and water effects to enhance property features.'),
+            array('title' => 'Color Correction', 'description' => 'Professional color grading for consistent, appealing property photos.'),
+            array('title' => 'Perspective Correction', 'description' => 'Fix distorted lines and angles for professional architectural shots.')
         );
+
+        // Build services gallery from customizer
+        $services_gallery = array();
+        for ($i = 1; $i <= 11; $i++) {
+            $image_count = get_theme_mod("gallery_service{$i}_image_count", 1);
+            $main_image = get_theme_mod("gallery_service{$i}_image1", $default_images[$i-1]);
+
+            $services_gallery[] = array(
+                'title' => get_theme_mod("gallery_service{$i}_title", $default_data[$i-1]['title']),
+                'description' => get_theme_mod("gallery_service{$i}_description", $default_data[$i-1]['description']),
+                'image' => $main_image,
+                'image_count' => $image_count
+            );
+        }
         ?>
 
         <div class="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             <?php
-            $visible_index = 0;
             foreach ($services_gallery as $index => $service) :
-                // Check if this service should be visible
-                $is_visible = get_theme_mod("service_gallery_visible_" . ($index + 1), true);
-                if (!$is_visible) continue;
             ?>
-                <div class="relative group cursor-pointer service-gallery-item" data-service="<?php echo $visible_index; ?>">
+                <div class="relative group cursor-pointer service-gallery-item" data-service="<?php echo $index; ?>">
                     <img src="<?php echo esc_url($service['image']); ?>"
                          alt="<?php echo esc_attr($service['title']); ?>"
                          class="w-full h-48 object-cover rounded-xl shadow-smooth transition-all duration-300 group-hover:scale-105">
@@ -109,9 +76,7 @@
                         </svg>
                     </div>
                 </div>
-            <?php
-                $visible_index++;
-            endforeach; ?>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>

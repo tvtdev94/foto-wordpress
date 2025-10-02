@@ -109,147 +109,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeModal = document.getElementById('closeModal');
     const galleryItems = document.querySelectorAll('.service-gallery-item');
 
-    // Services data with sample thumbnails
-    const servicesData = {
-        0: { // Single
-            title: 'Single',
-            description: 'Perfect for quick edits with natural lighting adjustments, giving your photos a clean and polished look.',
-            thumbnails: [
-                'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1486304873000-235643847519?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=400&auto=format&fit=crop'
-            ]
-        },
-        1: { // HDR
-            title: 'HDR',
-            description: 'Blending multiple exposures to create bright, detailed, and true-to-life images that impress every viewer.',
-            thumbnails: [
-                'https://images.unsplash.com/photo-1505692794403-34cb4b7c7263?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=400&auto=format&fit=crop'
-            ]
-        },
-        2: { // Ambient Flash
-            title: 'Ambient Flash',
-            description: 'Combining ambient light and flash shots for balanced lighting and natural colors in every room.',
-            thumbnails: [
-                'https://images.unsplash.com/photo-1504626835342-6b01071d182e?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=400&auto=format&fit=crop'
-            ]
-        },
-        3: { // 2D Floor Plan
-            title: '2D Floor Plan',
-            description: 'Simple and accurate layouts that help buyers clearly understand the property\'s structure.',
-            thumbnails: [
-                'https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=400&auto=format&fit=crop'
-            ]
-        },
-        4: { // 3D Floor Plan
-            title: '3D Floor Plan',
-            description: 'Realistic 3D layouts that bring the property to life with depth and perspective.',
-            thumbnails: [
-                'https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=400&auto=format&fit=crop'
-            ]
-        },
-        5: { // Virtual Staging
-            title: 'Virtual Staging',
-            description: 'Instantly transform empty spaces into beautifully styled rooms with digital furniture and decor.',
-            thumbnails: [
-                'https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=400&auto=format&fit=crop'
-            ]
-        },
-        6: { // Clear the Room
-            title: 'Clear the Room',
-            description: 'Showcase the true size of a space by removing all furniture and clutter.',
-            thumbnails: [
-                'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=400&auto=format&fit=crop'
-            ]
-        },
-        7: { // Clear the Room + VS
-            title: 'Clear the Room + VS',
-            description: 'Start with a clean, empty room and then add stylish virtual staging for maximum impact.',
-            thumbnails: [
-                'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=400&auto=format&fit=crop'
-            ]
-        },
-        8: { // Item Removal
-            title: 'Item Removal',
-            description: 'Say goodbye to unwanted objects or distractions, keeping your photos neat and professional.',
-            thumbnails: [
-                'https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1486304873000-235643847519?q=80&w=400&auto=format&fit=crop'
-            ]
-        },
-        9: { // Natural Twilight
-            title: 'Natural Twilight',
-            description: 'Turn daytime shots into stunning twilight scenes with soft, natural evening light.',
-            thumbnails: [
-                'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1486304873000-235643847519?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=400&auto=format&fit=crop'
-            ]
-        },
-        10: { // Virtual Twilight
-            title: 'Virtual Twilight',
-            description: 'Enhance exterior photos with a dramatic dusk effect, making every property stand out.',
-            thumbnails: [
-                'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1486304873000-235643847519?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=400&auto=format&fit=crop'
-            ]
-        }
-    };
-
     // Open modal when clicking gallery items
     galleryItems.forEach(item => {
         item.addEventListener('click', function() {
             const serviceIndex = parseInt(this.dataset.service);
-            const serviceData = servicesData[serviceIndex];
+            const serviceData = window.servicesGalleryData && window.servicesGalleryData[serviceIndex]
+                ? window.servicesGalleryData[serviceIndex]
+                : null;
 
             if (serviceData) {
                 modalTitle.textContent = serviceData.title;
@@ -258,9 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Clear and populate thumbnails
                 modalThumbnails.innerHTML = '';
-                const thumbnails = window.servicesThumbnails && window.servicesThumbnails[serviceIndex]
-                    ? window.servicesThumbnails[serviceIndex]
-                    : serviceData.thumbnails;
+                const thumbnails = serviceData.thumbnails;
 
                 thumbnails.forEach((thumb, index) => {
                     const img = document.createElement('img');
