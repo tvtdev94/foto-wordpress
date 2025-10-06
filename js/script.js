@@ -256,9 +256,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     const baWrap = document.createElement('div');
                     baWrap.className = 'ba-wrap aspect-[16/10] shadow-smooth rounded-lg overflow-hidden relative';
                     baWrap.innerHTML = `
-                        <img src="${slide.before}" alt="Before" />
+                        <img src="${slide.after}" alt="After" />
                         <div class="ba-after" style="width:50%">
-                            <img src="${slide.after}" alt="After" />
+                            <img src="${slide.before}" alt="Before" />
                         </div>
                         <div class="ba-handle left-1/2"></div>
                         <div class="ba-dot">↔</div>

@@ -43,22 +43,22 @@ window.servicesGalleryData = {
     <?php
     // Default data
     $default_titles = array(
-        'HDR/Flambient', 'Virtual Staging', 'Floor Plan & Site Plan', 'Sky/Twilight Replace',
-        'Reels/Shorts', 'Remove Objects', 'Day to Dusk', 'Grass Enhancement',
-        'Fire/Water Features', 'Color Correction', 'Perspective Correction'
+        'Single Exposure', 'HDR', 'Ambient Flash', '2D Floor Plan', '3D Floor Plan',
+        'Virtual Staging', 'Clear the Room', 'Virtual Renovation', 'Item Removal',
+        'Natural Twilight', 'Virtual Twilight'
     );
     $default_descriptions = array(
+        '1 phơi sáng, không blend, xử lý ánh sáng tự nhiên cơ bản, chỉnh màu & độ nét.',
         'Blending multiple exposures to create bright, detailed, and true-to-life images.',
+        'Kết hợp HDR + flash, loại bỏ bóng tối, chi tiết rõ mọi góc, màu tự nhiên.',
+        'Vẽ 2D, quy chuẩn kích thước, chú thích phòng, xuất PNG/PDF/SVG.',
+        'Vẽ 3D, góc nhìn chân thực, màu sắc đẹp, xuất high-res.',
         'Transform empty spaces into beautifully styled rooms with digital furniture.',
-        'Accurate layouts that help buyers clearly understand the property structure.',
-        'Enhance photos with dramatic sky replacements and twilight effects.',
-        'Short-form video content optimized for social media marketing.',
+        'Xóa toàn bộ nội thất, vật dụng, chuẩn bị phòng trống sạch để staging.',
+        'Sửa chữa ảo: đổi màu tường, sàn, cửa, nội thất, hiện đại hóa không gian.',
         'Clean removal of unwanted objects, keeping photos neat and professional.',
-        'Turn daytime shots into stunning twilight scenes with natural evening light.',
-        'Replace patchy grass with lush, vibrant green lawns.',
-        'Add realistic fire and water effects to enhance property features.',
-        'Professional color grading for consistent, appealing property photos.',
-        'Fix distorted lines and angles for professional architectural shots.'
+        'Twilight thật từ nhiều phơi sáng, blend ngoại cảnh & nội thất, màu ấm tự nhiên.',
+        'Enhance photos with dramatic sky replacements and twilight effects.'
     );
 
     for ($i = 1; $i <= 11; $i++) :

@@ -25,17 +25,17 @@
 
         // Default titles and descriptions
         $default_data = array(
-            array('title' => 'HDR/Flambient', 'description' => 'Blending multiple exposures to create bright, detailed, and true-to-life images.'),
+            array('title' => 'Single Exposure', 'description' => '1 phơi sáng, không blend, xử lý ánh sáng tự nhiên cơ bản, chỉnh màu & độ nét.'),
+            array('title' => 'HDR', 'description' => 'Blending multiple exposures to create bright, detailed, and true-to-life images.'),
+            array('title' => 'Ambient Flash', 'description' => 'Kết hợp HDR + flash, loại bỏ bóng tối, chi tiết rõ mọi góc, màu tự nhiên.'),
+            array('title' => '2D Floor Plan', 'description' => 'Vẽ 2D, quy chuẩn kích thước, chú thích phòng, xuất PNG/PDF/SVG.'),
+            array('title' => '3D Floor Plan', 'description' => 'Vẽ 3D, góc nhìn chân thực, màu sắc đẹp, xuất high-res.'),
             array('title' => 'Virtual Staging', 'description' => 'Transform empty spaces into beautifully styled rooms with digital furniture.'),
-            array('title' => 'Floor Plan & Site Plan', 'description' => 'Accurate layouts that help buyers clearly understand the property structure.'),
-            array('title' => 'Sky/Twilight Replace', 'description' => 'Enhance photos with dramatic sky replacements and twilight effects.'),
-            array('title' => 'Reels/Shorts', 'description' => 'Short-form video content optimized for social media marketing.'),
-            array('title' => 'Remove Objects', 'description' => 'Clean removal of unwanted objects, keeping photos neat and professional.'),
-            array('title' => 'Day to Dusk', 'description' => 'Turn daytime shots into stunning twilight scenes with natural evening light.'),
-            array('title' => 'Grass Enhancement', 'description' => 'Replace patchy grass with lush, vibrant green lawns.'),
-            array('title' => 'Fire/Water Features', 'description' => 'Add realistic fire and water effects to enhance property features.'),
-            array('title' => 'Color Correction', 'description' => 'Professional color grading for consistent, appealing property photos.'),
-            array('title' => 'Perspective Correction', 'description' => 'Fix distorted lines and angles for professional architectural shots.')
+            array('title' => 'Clear the Room', 'description' => 'Xóa toàn bộ nội thất, vật dụng, chuẩn bị phòng trống sạch để staging.'),
+            array('title' => 'Virtual Renovation', 'description' => 'Sửa chữa ảo: đổi màu tường, sàn, cửa, nội thất, hiện đại hóa không gian.'),
+            array('title' => 'Item Removal', 'description' => 'Clean removal of unwanted objects, keeping photos neat and professional.'),
+            array('title' => 'Natural Twilight', 'description' => 'Twilight thật từ nhiều phơi sáng, blend ngoại cảnh & nội thất, màu ấm tự nhiên.'),
+            array('title' => 'Virtual Twilight', 'description' => 'Enhance photos with dramatic sky replacements and twilight effects.')
         );
 
         // Build services gallery from customizer

@@ -100,6 +100,38 @@ function foto_services_reorganized_customizer($wp_customize) {
         'description' => 'Cài đặt header và các nút bấm chung',
     ));
 
+    // Navigation Menu Items
+    $menu_items = array(
+        1 => array('label' => 'Menu Item 1', 'default' => 'Services', 'url' => '#services'),
+        2 => array('label' => 'Menu Item 2', 'default' => 'Before/After', 'url' => '#beforeafter'),
+        3 => array('label' => 'Menu Item 3', 'default' => 'Gallery', 'url' => '#gallery'),
+        4 => array('label' => 'Menu Item 4', 'default' => 'Pricing', 'url' => '#pricing'),
+        5 => array('label' => 'Menu Item 5', 'default' => 'FAQ', 'url' => '#faq')
+    );
+
+    foreach ($menu_items as $num => $item) {
+        $wp_customize->add_setting("nav_menu_item{$num}_text", array(
+            'default' => $item['default'],
+            'sanitize_callback' => 'sanitize_text_field',
+        ));
+        $wp_customize->add_control("nav_menu_item{$num}_text", array(
+            'label' => $item['label'] . ' Text',
+            'section' => 'header_general_buttons',
+            'type' => 'text',
+        ));
+
+        $wp_customize->add_setting("nav_menu_item{$num}_url", array(
+            'default' => $item['url'],
+            'sanitize_callback' => 'esc_url_raw',
+        ));
+        $wp_customize->add_control("nav_menu_item{$num}_url", array(
+            'label' => $item['label'] . ' URL',
+            'section' => 'header_general_buttons',
+            'type' => 'text',
+            'description' => 'Link URL (e.g., #services or full URL)',
+        ));
+    }
+
     $wp_customize->add_setting('header_button_text', array(
         'default' => 'Nhận báo giá',
         'sanitize_callback' => 'sanitize_text_field',

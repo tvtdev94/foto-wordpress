@@ -47,12 +47,18 @@
 
 <?php
 function foto_services_fallback_menu() {
-    ?>
-    <a href="#services" class="hover:text-indigo-600">Dịch vụ</a>
-    <a href="#beforeafter" class="hover:text-indigo-600">Before/After</a>
-    <a href="#gallery" class="hover:text-indigo-600">Gallery</a>
-    <a href="#pricing" class="hover:text-indigo-600">Bảng giá</a>
-    <a href="#faq" class="hover:text-indigo-600">FAQ</a>
-    <?php
+    $menu_items = array(
+        1 => array('default_text' => 'Services', 'default_url' => '#services'),
+        2 => array('default_text' => 'Before/After', 'default_url' => '#beforeafter'),
+        3 => array('default_text' => 'Gallery', 'default_url' => '#gallery'),
+        4 => array('default_text' => 'Pricing', 'default_url' => '#pricing'),
+        5 => array('default_text' => 'FAQ', 'default_url' => '#faq')
+    );
+
+    foreach ($menu_items as $num => $item) {
+        $text = get_theme_mod("nav_menu_item{$num}_text", $item['default_text']);
+        $url = get_theme_mod("nav_menu_item{$num}_url", $item['default_url']);
+        echo '<a href="' . esc_url($url) . '" class="hover:text-indigo-600">' . esc_html($text) . '</a>';
+    }
 }
 ?>
