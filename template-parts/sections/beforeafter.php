@@ -75,9 +75,9 @@
             ?>
                 <div data-service-id="<?php echo $i; ?>" data-service-name="<?php echo esc_attr($title); ?>">
                     <div class="ba-wrap aspect-[4/3] shadow-smooth rounded-lg overflow-hidden">
-                        <img src="<?php echo esc_url($before); ?>" alt="Before" />
+                        <img src="<?php echo esc_url($after); ?>" alt="After" />
                         <div class="ba-after" style="width:50%">
-                            <img src="<?php echo esc_url($after); ?>" alt="After" />
+                            <img src="<?php echo esc_url($before); ?>" alt="Before" />
                         </div>
                         <div class="ba-handle left-1/2"></div>
                         <div class="ba-dot">↔</div>

@@ -219,6 +219,8 @@ function foto_beforeafter_customizer_js() {
             // Handle all 11 services
             for (let serviceNum = 1; serviceNum <= 11; serviceNum++) {
                 const settingId = 'ba_service' + serviceNum + '_slide_count';
+                const titleSettingId = 'ba_service' + serviceNum + '_title';
+                const sectionId = 'beforeafter_service_' + serviceNum;
 
                 // Function to toggle slide visibility
                 function toggleSlides(count) {
@@ -238,9 +240,33 @@ function foto_beforeafter_customizer_js() {
                     }
                 }
 
+                // Function to update section title (real-time)
+                function updateSectionTitle(newTitle) {
+                    const section = wp.customize.section(sectionId);
+                    if (section) {
+                        const $titleButton = section.container.find('.accordion-section-title');
+
+                        // Find the first text node and update its value directly
+                        const firstTextNode = $titleButton.contents().filter(function() {
+                            return this.nodeType === 3; // Text node
+                        }).get(0);
+
+                        if (firstTextNode) {
+                            firstTextNode.nodeValue = newTitle;
+                        }
+                    }
+                }
+
                 // Initial state
                 const initialCount = wp.customize(settingId)();
                 toggleSlides(initialCount);
+
+                // Real-time title update
+                wp.customize(titleSettingId, function(setting) {
+                    setting.bind(function(newValue) {
+                        updateSectionTitle(newValue);
+                    });
+                });
 
                 // Listen for slide count changes
                 wp.customize(settingId, function(setting) {

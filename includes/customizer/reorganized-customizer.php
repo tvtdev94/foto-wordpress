@@ -62,6 +62,7 @@ function foto_services_reorganized_customizer($wp_customize) {
     $wp_customize->add_setting('contact_phone', array(
         'default' => '+84 949494217',
         'sanitize_callback' => 'sanitize_text_field',
+        'transport' => 'refresh',
     ));
     $wp_customize->add_control('contact_phone', array(
         'label' => 'Contact Phone',
