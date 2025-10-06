@@ -13,7 +13,14 @@ function foto_gallery_images_customizer($wp_customize) {
     // 11 Services matching service gallery
     $services = array(
         1 => array(
-            'title' => 'HDR/Flambient',
+            'title' => 'Single Exposure',
+            'description' => '1 phơi sáng, không blend, xử lý ánh sáng tự nhiên cơ bản, chỉnh màu & độ nét.',
+            'images' => array(
+                'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=800&auto=format&fit=crop'
+            )
+        ),
+        2 => array(
+            'title' => 'HDR',
             'description' => 'Blending multiple exposures to create bright, detailed, and true-to-life images that impress every viewer.',
             'images' => array(
                 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=800&auto=format&fit=crop',
@@ -21,7 +28,28 @@ function foto_gallery_images_customizer($wp_customize) {
                 'https://images.unsplash.com/photo-1486304873000-235643847519?q=80&w=800&auto=format&fit=crop'
             )
         ),
-        2 => array(
+        3 => array(
+            'title' => 'Ambient Flash',
+            'description' => 'Kết hợp HDR + flash, loại bỏ bóng tối, chi tiết rõ mọi góc, màu tự nhiên.',
+            'images' => array(
+                'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?q=80&w=800&auto=format&fit=crop'
+            )
+        ),
+        4 => array(
+            'title' => '2D Floor Plan',
+            'description' => 'Vẽ 2D, quy chuẩn kích thước, chú thích phòng, xuất PNG/PDF/SVG.',
+            'images' => array(
+                'https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=800&auto=format&fit=crop'
+            )
+        ),
+        5 => array(
+            'title' => '3D Floor Plan',
+            'description' => 'Vẽ 3D, góc nhìn chân thực, màu sắc đẹp, xuất high-res.',
+            'images' => array(
+                'https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=800&auto=format&fit=crop'
+            )
+        ),
+        6 => array(
             'title' => 'Virtual Staging',
             'description' => 'Instantly transform empty spaces into beautifully styled rooms with digital furniture and decor.',
             'images' => array(
@@ -29,69 +57,41 @@ function foto_gallery_images_customizer($wp_customize) {
                 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop'
             )
         ),
-        3 => array(
-            'title' => 'Floor Plan & Site Plan',
-            'description' => 'Simple and accurate layouts that help buyers clearly understand the property\'s structure.',
+        7 => array(
+            'title' => 'Clear the Room',
+            'description' => 'Xóa toàn bộ nội thất, vật dụng, chuẩn bị phòng trống sạch để staging.',
             'images' => array(
-                'https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=800&auto=format&fit=crop'
+                'https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=800&auto=format&fit=crop'
             )
         ),
-        4 => array(
-            'title' => 'Sky/Twilight Replace',
-            'description' => 'Enhance exterior photos with a dramatic dusk effect, making every property stand out.',
+        8 => array(
+            'title' => 'Virtual Renovation',
+            'description' => 'Sửa chữa ảo: đổi màu tường, sàn, cửa, nội thất, hiện đại hóa không gian.',
             'images' => array(
-                'https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=800&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop'
+                'https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=800&auto=format&fit=crop'
             )
         ),
-        5 => array(
-            'title' => 'Reels/Shorts',
-            'description' => 'Short-form video content optimized for social media marketing and engagement.',
-            'images' => array(
-                'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=800&auto=format&fit=crop'
-            )
-        ),
-        6 => array(
-            'title' => 'Remove Objects',
+        9 => array(
+            'title' => 'Item Removal',
             'description' => 'Say goodbye to unwanted objects or distractions, keeping your photos neat and professional.',
             'images' => array(
                 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=800&auto=format&fit=crop',
                 'https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=800&auto=format&fit=crop'
             )
         ),
-        7 => array(
-            'title' => 'Day to Dusk',
-            'description' => 'Turn daytime shots into stunning twilight scenes with soft, natural evening light.',
+        10 => array(
+            'title' => 'Natural Twilight',
+            'description' => 'Twilight thật từ nhiều phơi sáng, blend ngoại cảnh & nội thất, màu ấm tự nhiên.',
             'images' => array(
                 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop'
             )
         ),
-        8 => array(
-            'title' => 'Grass Enhancement',
-            'description' => 'Replace patchy grass with lush, vibrant green lawns that enhance curb appeal.',
-            'images' => array(
-                'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=800&auto=format&fit=crop'
-            )
-        ),
-        9 => array(
-            'title' => 'Fire/Water Features',
-            'description' => 'Add realistic fire and water effects to enhance property features and atmosphere.',
-            'images' => array(
-                'https://images.unsplash.com/photo-1486304873000-235643847519?q=80&w=800&auto=format&fit=crop'
-            )
-        ),
-        10 => array(
-            'title' => 'Color Correction',
-            'description' => 'Professional color grading for consistent, appealing property photos across all listings.',
-            'images' => array(
-                'https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=800&auto=format&fit=crop'
-            )
-        ),
         11 => array(
-            'title' => 'Perspective Correction',
-            'description' => 'Fix distorted lines and angles for professional architectural shots that look perfect.',
+            'title' => 'Virtual Twilight',
+            'description' => 'Enhance exterior photos with a dramatic dusk effect, making every property stand out.',
             'images' => array(
-                'https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=800&auto=format&fit=crop'
+                'https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=800&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop'
             )
         )
     );

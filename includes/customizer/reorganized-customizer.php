@@ -349,40 +349,70 @@ Fast turnaround, professional QC, and dedicated support make Foto Services the t
 
     $services = array(
         1 => array(
-            'title' => 'HDR/Flambient',
+            'title' => 'Single Exposure',
+            'icon' => '📸',
+            'description' => '1 phơi sáng, không blend, xử lý ánh sáng tự nhiên cơ bản, chỉnh màu & độ nét.',
+            'features' => array('1 exposure', 'Natural light', 'Basic edit')
+        ),
+        2 => array(
+            'title' => 'HDR',
             'icon' => '🖼️',
             'description' => 'Blend 3–5 phơi sáng, cân bằng trắng, kéo chi tiết cửa sổ tự nhiên, thẳng méo, xóa dây điện.',
             'features' => array('Window Pull tự nhiên', 'Color cast control', 'Sharpen sạch sẽ')
         ),
-        2 => array(
+        3 => array(
+            'title' => 'Ambient Flash',
+            'icon' => '⚡',
+            'description' => 'Kết hợp HDR + flash, loại bỏ bóng tối, chi tiết rõ mọi góc, màu tự nhiên.',
+            'features' => array('HDR + flash composite', 'Natural shadows', 'Balanced tones')
+        ),
+        4 => array(
+            'title' => '2D Floor Plan',
+            'icon' => '🗺️',
+            'description' => 'Vẽ 2D, quy chuẩn kích thước, chú thích phòng, xuất PNG/PDF/SVG.',
+            'features' => array('Accurate dimensions', 'Branded style', 'Editable file')
+        ),
+        5 => array(
+            'title' => '3D Floor Plan',
+            'icon' => '🧭',
+            'description' => 'Vẽ 3D, góc nhìn chân thực, màu sắc đẹp, xuất high-res.',
+            'features' => array('Realistic 3D', 'Branded style', 'High-res export')
+        ),
+        6 => array(
             'title' => 'Virtual Staging',
             'icon' => '🏡',
             'description' => 'Dàn dựng nội thất ảo (phòng khách, ngủ, sân vườn), nhiều phong cách: modern, scandinavian, coastal…',
             'features' => array('3–5 set/ảnh', 'Bố cục hợp lý', 'Bóng/ánh sáng chân thực')
         ),
-        3 => array(
-            'title' => 'Floor Plan & Site Plan',
-            'icon' => '🧭',
-            'description' => 'Vẽ 2D/3D, quy chuẩn kích thước, hướng, chú thích phòng; xuất PNG/PDF/SVG.',
-            'features' => array('Clean vector', 'Branded style', 'File gốc để sửa')
+        7 => array(
+            'title' => 'Clear the Room',
+            'icon' => '🧽',
+            'description' => 'Xóa toàn bộ nội thất, vật dụng, chuẩn bị phòng trống sạch để staging.',
+            'features' => array('Remove all furniture', 'Clean background', 'Ready for staging')
         ),
-        4 => array(
-            'title' => 'Sky/Twilight Replace',
-            'icon' => '🌅',
-            'description' => 'Thay bầu trời & twilight tự nhiên, giữ chi tiết kiến trúc, ánh sáng phản chiếu hợp lý.',
-            'features' => array('Nhiều preset', 'Không giả', 'Consistent màu')
+        8 => array(
+            'title' => 'Virtual Renovation',
+            'icon' => '🏗️',
+            'description' => 'Sửa chữa ảo: đổi màu tường, sàn, cửa, nội thất, hiện đại hóa không gian.',
+            'features' => array('Change colors/materials', 'Modernize space', 'Natural look')
         ),
-        5 => array(
-            'title' => 'Reels/Shorts',
-            'icon' => '🎥',
-            'description' => 'Cắt dựng 15–60s, nhạc trend, subtitle rõ, hook mạnh — phù hợp agent marketing.',
-            'features' => array('Ratio 9:16/1:1/16:9', 'Logo & brand kit', 'Export đa nền tảng')
-        ),
-        6 => array(
-            'title' => 'Remove Objects',
+        9 => array(
+            'title' => 'Item Removal',
             'icon' => '🧹',
             'description' => 'Loại bỏ vật thể 1–10+ items, dọn dây, thùng rác, vết bẩn; đi texture & ánh sáng mượt.',
             'features' => array('Seamless retouch', 'Giữ chi tiết', 'Soát lỗi kỹ')
+        ),
+        10 => array(
+            'title' => 'Natural Twilight',
+            'icon' => '🌆',
+            'description' => 'Twilight thật từ nhiều phơi sáng, blend ngoại cảnh & nội thất, màu ấm tự nhiên.',
+            'features' => array('Real twilight blend', 'Warm natural tones', 'Interior + exterior')
+        ),
+        11 => array(
+            'title' => 'Virtual Twilight',
+            'icon' => '🌅',
+            'description' => 'Thay bầu trời & twilight ảo tự nhiên, giữ chi tiết kiến trúc, ánh sáng phản chiếu hợp lý.',
+            'features' => array('Nhiều preset', 'Không giả', 'Consistent màu')
         )
     );
 

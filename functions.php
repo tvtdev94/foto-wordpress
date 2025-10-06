@@ -16,6 +16,7 @@ require_once get_template_directory() . '/includes/theme-customizer.php';
 require_once get_template_directory() . '/includes/custom-fields.php';
 require_once get_template_directory() . '/includes/contact-form.php';
 require_once get_template_directory() . '/includes/admin-functions.php';
+require_once get_template_directory() . '/includes/customizer/export-import-settings.php';
 
 // Bật hỗ trợ widget truyền thống
 function mytheme_setup() {

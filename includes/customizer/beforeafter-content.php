@@ -13,7 +13,16 @@ function foto_beforeafter_content_customizer($wp_customize) {
     // 11 Services matching service gallery
     $services = array(
         1 => array(
-            'title' => 'HDR/Flambient',
+            'title' => 'Single Exposure',
+            'slides' => array(
+                array(
+                    'before' => 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=800&auto=format&fit=crop',
+                    'after' => 'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?q=80&w=800&auto=format&fit=crop'
+                )
+            )
+        ),
+        2 => array(
+            'title' => 'HDR',
             'slides' => array(
                 array(
                     'before' => 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=800&auto=format&fit=crop',
@@ -29,7 +38,34 @@ function foto_beforeafter_content_customizer($wp_customize) {
                 )
             )
         ),
-        2 => array(
+        3 => array(
+            'title' => 'Ambient Flash',
+            'slides' => array(
+                array(
+                    'before' => 'https://images.unsplash.com/photo-1486304873000-235643847519?q=80&w=800&auto=format&fit=crop',
+                    'after' => 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=800&auto=format&fit=crop'
+                )
+            )
+        ),
+        4 => array(
+            'title' => '2D Floor Plan',
+            'slides' => array(
+                array(
+                    'before' => 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=800&auto=format&fit=crop',
+                    'after' => 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800&auto=format&fit=crop'
+                )
+            )
+        ),
+        5 => array(
+            'title' => '3D Floor Plan',
+            'slides' => array(
+                array(
+                    'before' => 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=800&auto=format&fit=crop',
+                    'after' => 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800&auto=format&fit=crop'
+                )
+            )
+        ),
+        6 => array(
             'title' => 'Virtual Staging',
             'slides' => array(
                 array(
@@ -42,39 +78,26 @@ function foto_beforeafter_content_customizer($wp_customize) {
                 )
             )
         ),
-        3 => array(
-            'title' => 'Floor Plan & Site Plan',
+        7 => array(
+            'title' => 'Clear the Room',
             'slides' => array(
                 array(
-                    'before' => 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=800&auto=format&fit=crop',
+                    'before' => 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop',
+                    'after' => 'https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=800&auto=format&fit=crop'
+                )
+            )
+        ),
+        8 => array(
+            'title' => 'Virtual Renovation',
+            'slides' => array(
+                array(
+                    'before' => 'https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=800&auto=format&fit=crop',
                     'after' => 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800&auto=format&fit=crop'
                 )
             )
         ),
-        4 => array(
-            'title' => 'Sky/Twilight Replace',
-            'slides' => array(
-                array(
-                    'before' => 'https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=800&auto=format&fit=crop',
-                    'after' => 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop'
-                ),
-                array(
-                    'before' => 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop',
-                    'after' => 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=800&auto=format&fit=crop'
-                )
-            )
-        ),
-        5 => array(
-            'title' => 'Reels/Shorts',
-            'slides' => array(
-                array(
-                    'before' => 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=800&auto=format&fit=crop',
-                    'after' => 'https://images.unsplash.com/photo-1486304873000-235643847519?q=80&w=800&auto=format&fit=crop'
-                )
-            )
-        ),
-        6 => array(
-            'title' => 'Remove Objects',
+        9 => array(
+            'title' => 'Item Removal',
             'slides' => array(
                 array(
                     'before' => 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=800&auto=format&fit=crop',
@@ -86,8 +109,8 @@ function foto_beforeafter_content_customizer($wp_customize) {
                 )
             )
         ),
-        7 => array(
-            'title' => 'Day to Dusk',
+        10 => array(
+            'title' => 'Natural Twilight',
             'slides' => array(
                 array(
                     'before' => 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop',
@@ -95,39 +118,16 @@ function foto_beforeafter_content_customizer($wp_customize) {
                 )
             )
         ),
-        8 => array(
-            'title' => 'Grass Enhancement',
-            'slides' => array(
-                array(
-                    'before' => 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=800&auto=format&fit=crop',
-                    'after' => 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=800&auto=format&fit=crop'
-                )
-            )
-        ),
-        9 => array(
-            'title' => 'Fire/Water Features',
-            'slides' => array(
-                array(
-                    'before' => 'https://images.unsplash.com/photo-1486304873000-235643847519?q=80&w=800&auto=format&fit=crop',
-                    'after' => 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=800&auto=format&fit=crop'
-                )
-            )
-        ),
-        10 => array(
-            'title' => 'Color Correction',
-            'slides' => array(
-                array(
-                    'before' => 'https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=800&auto=format&fit=crop',
-                    'after' => 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800&auto=format&fit=crop'
-                )
-            )
-        ),
         11 => array(
-            'title' => 'Perspective Correction',
+            'title' => 'Virtual Twilight',
             'slides' => array(
                 array(
                     'before' => 'https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=800&auto=format&fit=crop',
                     'after' => 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop'
+                ),
+                array(
+                    'before' => 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop',
+                    'after' => 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=800&auto=format&fit=crop'
                 )
             )
         )
