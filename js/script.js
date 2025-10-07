@@ -127,19 +127,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 const thumbnails = serviceData.thumbnails;
 
                 thumbnails.forEach((thumb, index) => {
+                    const container = document.createElement('div');
+                    container.className = 'aspect-square w-full overflow-hidden rounded-lg shadow-smooth cursor-pointer';
+
                     const img = document.createElement('img');
                     img.src = thumb;
                     img.alt = `${serviceData.title} example ${index + 1}`;
-                    img.className = 'w-full h-40 object-cover rounded-lg shadow-smooth cursor-pointer hover:scale-105 transition-transform duration-300';
+                    img.className = 'w-full h-full object-cover hover:scale-105 transition-transform duration-300';
 
                     // Add click handler for full view in modal
-                    img.addEventListener('click', function(e) {
+                    container.addEventListener('click', function(e) {
                         e.preventDefault();
                         e.stopPropagation();
                         showImageModal(thumb.replace('w=400', 'w=1200'));
                     });
 
-                    modalThumbnails.appendChild(img);
+                    container.appendChild(img);
+                    modalThumbnails.appendChild(container);
                 });
 
                 modal.classList.remove('hidden');

@@ -26,9 +26,9 @@
                 <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
                     <div class="text-yellow-400 text-lg mb-3"><?php echo esc_html(get_theme_mod("testimonial{$i}_rating", '')); ?></div>
                     <p class="text-gray-700 text-base leading-relaxed mb-4"><?php echo esc_html($content); ?></p>
-                    <div class="text-sm text-gray-600 font-medium">
-                        — <?php echo esc_html(get_theme_mod("testimonial{$i}_author", '')); ?>,
-                        <span class="text-gray-500"><?php echo esc_html(get_theme_mod("testimonial{$i}_location", '')); ?></span>
+                    <div class="text-sm text-gray-600">
+                        — <span class="font-extrabold"><?php echo esc_html(get_theme_mod("testimonial{$i}_author", '')); ?>,
+                        <?php echo esc_html(get_theme_mod("testimonial{$i}_location", '')); ?></span>
                     </div>
                 </div>
             <?php

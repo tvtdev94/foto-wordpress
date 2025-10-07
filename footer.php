@@ -2,7 +2,7 @@
 <footer class="py-10 bg-slate-900 text-white">
     <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
         <div class="text-white/80">© <span id="year"></span> Foto Services. All rights reserved.</div>
-        <div class="text-white/60 text-sm">Made for demo • Inspired by beepec.com layout</div>
+        <div class="text-white/60 text-sm"></div>
     </div>
 </footer>
 

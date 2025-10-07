@@ -105,8 +105,7 @@ function foto_services_reorganized_customizer($wp_customize) {
         1 => array('label' => 'Menu Item 1', 'default' => 'Services', 'url' => '#services'),
         2 => array('label' => 'Menu Item 2', 'default' => 'Before/After', 'url' => '#beforeafter'),
         3 => array('label' => 'Menu Item 3', 'default' => 'Gallery', 'url' => '#gallery'),
-        4 => array('label' => 'Menu Item 4', 'default' => 'Pricing', 'url' => '#pricing'),
-        5 => array('label' => 'Menu Item 5', 'default' => 'FAQ', 'url' => '#faq')
+        4 => array('label' => 'Menu Item 4', 'default' => 'Pricing', 'url' => '#pricing')
     );
 
     foreach ($menu_items as $num => $item) {

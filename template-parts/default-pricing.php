@@ -25,7 +25,7 @@
             'price' => '$0.85',
             'unit' => '/photo',
             'features' => array('3–5 exposures + 1 flash', 'Standard HDR & flash edit', 'Natural shadows & details'),
-            'featured' => true
+            'featured' => false
         ),
         array(
             'id' => 'multi_flash',

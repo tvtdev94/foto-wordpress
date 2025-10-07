@@ -51,8 +51,7 @@ function foto_services_fallback_menu() {
         1 => array('default_text' => 'Services', 'default_url' => '#services'),
         2 => array('default_text' => 'Before/After', 'default_url' => '#beforeafter'),
         3 => array('default_text' => 'Gallery', 'default_url' => '#gallery'),
-        4 => array('default_text' => 'Pricing', 'default_url' => '#pricing'),
-        5 => array('default_text' => 'FAQ', 'default_url' => '#faq')
+        4 => array('default_text' => 'Pricing', 'default_url' => '#pricing')
     );
 
     foreach ($menu_items as $num => $item) {

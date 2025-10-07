@@ -25,6 +25,12 @@ function mytheme_setup() {
 }
 add_action( 'after_setup_theme', 'mytheme_setup' );
 
+// Add favicon
+function mytheme_add_favicon() {
+    echo '<link rel="icon" type="image/png" href="' . get_template_directory_uri() . '/favicon.png">';
+}
+add_action( 'wp_head', 'mytheme_add_favicon' );
+
 // Đăng ký sidebar/widget area
 function mytheme_widgets_init() {
     register_sidebar( array(
