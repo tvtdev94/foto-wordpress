@@ -62,8 +62,10 @@ function handle_contact_form() {
             ));
         }
 
-        // Redirect with success message
-        wp_redirect(add_query_arg('contact_sent', '1', wp_get_referer()));
+        // Redirect with success message and scroll to contact section
+        $redirect_url = add_query_arg('contact_sent', '1', wp_get_referer());
+        $redirect_url .= '#contact';
+        wp_redirect($redirect_url);
         exit;
     }
 }

@@ -80,6 +80,37 @@ function foto_services_reorganized_customizer($wp_customize) {
         'type' => 'text',
     ));
 
+    // Social Media URLs
+    $wp_customize->add_setting('social_facebook', array(
+        'default' => 'https://www.facebook.com/RE.PhotoServices/',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+    $wp_customize->add_control('social_facebook', array(
+        'label' => 'Facebook URL',
+        'section' => 'contact_info',
+        'type' => 'url',
+    ));
+
+    $wp_customize->add_setting('social_tiktok', array(
+        'default' => 'https://www.tiktok.com/@fotoservices',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+    $wp_customize->add_control('social_tiktok', array(
+        'label' => 'TikTok URL',
+        'section' => 'contact_info',
+        'type' => 'url',
+    ));
+
+    $wp_customize->add_setting('social_instagram', array(
+        'default' => 'https://www.instagram.com/fotoservices/',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+    $wp_customize->add_control('social_instagram', array(
+        'label' => 'Instagram URL',
+        'section' => 'contact_info',
+        'type' => 'url',
+    ));
+
     $wp_customize->add_setting('contact_header_text', array(
         'default' => 'Let\'s work together!',
         'sanitize_callback' => 'sanitize_text_field',

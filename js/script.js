@@ -78,6 +78,20 @@ document.addEventListener('DOMContentLoaded', function() {
     if (yearElement) {
         yearElement.textContent = new Date().getFullYear();
     }
+
+    // Scroll to contact form if success message is shown
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('contact_sent') === '1') {
+        setTimeout(function() {
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                contactSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }, 100);
+    }
 });
 
 // Smooth scrolling for anchor links
